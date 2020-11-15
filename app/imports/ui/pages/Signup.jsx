@@ -25,25 +25,26 @@ class Signup extends React.Component {
     const { firstname, lastname, email, password } = this.state;
     if (firstname === '') {
       this.setState({ error: 'Please enter your first name.' });
-    } else if (lastname === '') {
-      this.setState({ error: 'Please enter your last name.' });
-    } else {
-      Accounts.createUser({ email, username: email, password }, (err) => {
-        if (err) {
-          this.setState({ error: err.reason });
-        } else {
-          Profiles.collection.insert({ firstname, lastname, owner: email },
-              (err2) => {
-                if (err2) {
-                  this.setState({ error: err2.reason }); // may need to fix
-                } else {
-                  this.setState({ error: '', redirectToReferer: true });
-                }
-              });
-          this.setState({ error: '', redirectToReferer: true });
-        }
-      });
-    }
+    } else
+      if (lastname === '') {
+        this.setState({ error: 'Please enter your last name.' });
+      } else {
+        Accounts.createUser({ email, username: email, password }, (err) => {
+          if (err) {
+            this.setState({ error: err.reason });
+          } else {
+            Profiles.collection.insert({ firstname, lastname, owner: email },
+                (err2) => {
+                  if (err2) {
+                    this.setState({ error: err2.reason }); // may need to fix
+                  } else {
+                    this.setState({ error: '', redirectToReferer: true });
+                  }
+                });
+            this.setState({ error: '', redirectToReferer: true });
+          }
+        });
+      }
   }
 
   /** Display the signup form. Redirect to add page after successful registration and login. */
@@ -54,70 +55,72 @@ class Signup extends React.Component {
       return <Redirect to={from}/>;
     }
     return (
-        <Container id="signup-page">
-          <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-            <Grid.Column>
-              <Header as="h2" textAlign="center" color="brown">
-                Register your account
-              </Header>
-              <Form onSubmit={this.submit}>
-                <Segment stacked>
-                  <Form.Group widths='equal'>
+        <div className="covid-landing-background">
+          <Container id="signup-page">
+            <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
+              <Grid.Column>
+                <Header as="h2" textAlign="center" color="brown">
+                  Register your account
+                </Header>
+                <Form onSubmit={this.submit}>
+                  <Segment stacked>
+                    <Form.Group widths='equal'>
+                      <Form.Input
+                          label="First Name"
+                          id="signup-form-firstname"
+                          name="firstname"
+                          type="firstname"
+                          placeholder="First Name"
+                          onChange={this.handleChange}
+                      />
+                      <Form.Input
+                          label="Last Name"
+                          id="signup-form-lastname"
+                          name="lastname"
+                          type="lastname"
+                          placeholder="Last Name"
+                          onChange={this.handleChange}
+                      />
+                    </Form.Group>
                     <Form.Input
-                        label="First Name"
-                        id="signup-form-firstname"
-                        name="firstname"
-                        type="firstname"
-                        placeholder="First Name"
+                        label="Email"
+                        id="signup-form-email"
+                        icon="user"
+                        iconPosition="left"
+                        name="email"
+                        type="email"
+                        placeholder="E-mail address"
                         onChange={this.handleChange}
                     />
                     <Form.Input
-                        label="Last Name"
-                        id="signup-form-lastname"
-                        name="lastname"
-                        type="lastname"
-                        placeholder="Last Name"
+                        label="Password"
+                        id="signup-form-password"
+                        icon="lock"
+                        iconPosition="left"
+                        name="password"
+                        placeholder="Password"
+                        type="password"
                         onChange={this.handleChange}
                     />
-                  </Form.Group>
-                  <Form.Input
-                      label="Email"
-                      id="signup-form-email"
-                      icon="user"
-                      iconPosition="left"
-                      name="email"
-                      type="email"
-                      placeholder="E-mail address"
-                      onChange={this.handleChange}
-                  />
-                  <Form.Input
-                      label="Password"
-                      id="signup-form-password"
-                      icon="lock"
-                      iconPosition="left"
-                      name="password"
-                      placeholder="Password"
-                      type="password"
-                      onChange={this.handleChange}
-                  />
-                  <Form.Button id="signup-form-submit" content="Submit" color="brown"/>
-                </Segment>
-              </Form>
-              <Message color="brown">
-                Already have an account? Login <Link to="/signin">here</Link>
-              </Message>
-              {this.state.error === '' ? (
-                  ''
-              ) : (
-                  <Message
-                      error
-                      header="Registration was not successful"
-                      content={this.state.error}
-                  />
-              )}
-            </Grid.Column>
-          </Grid>
-        </Container>
+                    <Form.Button id="signup-form-submit" content="Submit" color="brown"/>
+                  </Segment>
+                </Form>
+                <Message color="brown">
+                  Already have an account? Login <Link to="/signin">here</Link>
+                </Message>
+                {this.state.error === '' ? (
+                    ''
+                ) : (
+                    <Message
+                        error
+                        header="Registration was not successful"
+                        content={this.state.error}
+                    />
+                )}
+              </Grid.Column>
+            </Grid>
+          </Container>
+        </div>
     );
   }
 }
