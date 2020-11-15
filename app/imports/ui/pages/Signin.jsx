@@ -45,7 +45,7 @@ export default class Signin extends React.Component {
       <Container id="signin-page">
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
-            <Header as="h2" textAlign="center">
+            <Header as="h2" textAlign="center" color="brown">
               Login to your account
             </Header>
             <Form onSubmit={this.submit}>
@@ -70,10 +70,10 @@ export default class Signin extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Button id="signin-form-submit" content="Submit"/>
+                <Form.Button id="signin-form-submit" content="Submit" color="brown"/>
               </Segment>
             </Form>
-            <Message>
+            <Message color="brown">
               <Link to="/signup">Click here to Register</Link>
             </Message>
             {this.state.error === '' ? (
