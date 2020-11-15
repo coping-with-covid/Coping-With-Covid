@@ -1,11 +1,20 @@
-.digits-landing-background {
+.landing-background {
   background: black url("/images/landing.jpg") no-repeat fixed center center;
   background-size: cover;
   height: 400px;
   width: inherit;
 }
 
-.intro {
-  font-size: 18px;
+.ui.large.button.hollow {
+  color: lightpink;
+  background-color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-color: lightpink;
+}
+
+.ui.large.button.solid {
+  color: white;
+  background-color: lightpink;
 }
 
