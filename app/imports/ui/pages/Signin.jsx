@@ -35,6 +35,7 @@ export default class Signin extends React.Component {
 
   /** Render the signin form. */
   render() {
+    const titleStyle = { marginTop: '15px', marginBottom: '30px' };
     const { from } = this.props.location.state || { from: { pathname: '/' } };
     // if correct authentication, redirect to page instead of login screen
     if (this.state.redirectToReferer) {
@@ -42,53 +43,57 @@ export default class Signin extends React.Component {
     }
     // Otherwise return the Login form.
     return (
-        <div className="covid-landing-background">
-          <Container id="signin-page">
-            <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-              <Grid.Column>
-                <Header as="h2" textAlign="center" color="brown">
-                  Login to your account
-                </Header>
-                <Form onSubmit={this.submit}>
-                  <Segment stacked>
-                    <Form.Input
-                        label="Email"
-                        id="signin-form-email"
-                        icon="user"
-                        iconPosition="left"
-                        name="email"
-                        type="email"
-                        placeholder="E-mail address"
-                        onChange={this.handleChange}
-                    />
-                    <Form.Input
-                        label="Password"
-                        id="signin-form-password"
-                        icon="lock"
-                        iconPosition="left"
-                        name="password"
-                        placeholder="Password"
-                        type="password"
-                        onChange={this.handleChange}
-                    />
-                    <Form.Button id="signin-form-submit" content="Submit" color="brown"/>
-                  </Segment>
-                </Form>
-                <Message color="brown">
-                  <Link to="/signup">Click here to Register</Link>
-                </Message>
-                {this.state.error === '' ? (
-                    ''
-                ) : (
-                    <Message
-                        error
-                        header="Login was not successful"
-                        content={this.state.error}
-                    />
-                )}
-              </Grid.Column>
-            </Grid>
-          </Container>
+        <div>
+          <div style={titleStyle}>
+            <Header textAlign="centered" size='huge' color="brown">
+              Login to your account
+            </Header>
+          </div>
+          <div className="landing-background">
+            <Container id="signin-page">
+              <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
+                <Grid.Column>
+                  <Form onSubmit={this.submit}>
+                    <Segment stacked>
+                      <Form.Input
+                          label="Email"
+                          id="signin-form-email"
+                          icon="user"
+                          iconPosition="left"
+                          name="email"
+                          type="email"
+                          placeholder="E-mail address"
+                          onChange={this.handleChange}
+                      />
+                      <Form.Input
+                          label="Password"
+                          id="signin-form-password"
+                          icon="lock"
+                          iconPosition="left"
+                          name="password"
+                          placeholder="Password"
+                          type="password"
+                          onChange={this.handleChange}
+                      />
+                      <Form.Button id="signin-form-submit" content="Submit" color="brown" circular/>
+                    </Segment>
+                  </Form>
+                  <Message color="brown">
+                    <Link to="/signup">Click here to Register</Link>
+                  </Message>
+                  {this.state.error === '' ? (
+                      ''
+                  ) : (
+                      <Message
+                          error
+                          header="Login was not successful"
+                          content={this.state.error}
+                      />
+                  )}
+                </Grid.Column>
+              </Grid>
+            </Container>
+          </div>
         </div>
     );
   }

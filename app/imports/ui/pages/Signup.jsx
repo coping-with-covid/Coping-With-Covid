@@ -49,77 +49,82 @@ class Signup extends React.Component {
 
   /** Display the signup form. Redirect to add page after successful registration and login. */
   render() {
+    const titleStyle = { marginTop: '15px', marginBottom: '30px' };
     const { from } = this.props.location.state || { from: { pathname: '/add' } };
     // if correct authentication, redirect to from: page instead of signup screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
     }
     return (
-        <div className="covid-landing-background">
-          <Container id="signup-page">
-            <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-              <Grid.Column>
-                <Header as="h2" textAlign="center" color="brown">
-                  Register your account
-                </Header>
-                <Form onSubmit={this.submit}>
-                  <Segment stacked>
-                    <Form.Group widths='equal'>
+        <div>
+          <div style={titleStyle}>
+            <Header textAlign="centered" size='huge' color="brown">
+              Register your account
+            </Header>
+          </div>
+          <div className="landing-background">
+            <Container id="signup-page">
+              <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
+                <Grid.Column>
+                  <Form onSubmit={this.submit}>
+                    <Segment stacked>
+                      <Form.Group widths='equal'>
+                        <Form.Input
+                            label="First Name"
+                            id="signup-form-firstname"
+                            name="firstname"
+                            type="firstname"
+                            placeholder="First Name"
+                            onChange={this.handleChange}
+                        />
+                        <Form.Input
+                            label="Last Name"
+                            id="signup-form-lastname"
+                            name="lastname"
+                            type="lastname"
+                            placeholder="Last Name"
+                            onChange={this.handleChange}
+                        />
+                      </Form.Group>
                       <Form.Input
-                          label="First Name"
-                          id="signup-form-firstname"
-                          name="firstname"
-                          type="firstname"
-                          placeholder="First Name"
+                          label="Email"
+                          id="signup-form-email"
+                          icon="user"
+                          iconPosition="left"
+                          name="email"
+                          type="email"
+                          placeholder="E-mail address"
                           onChange={this.handleChange}
                       />
                       <Form.Input
-                          label="Last Name"
-                          id="signup-form-lastname"
-                          name="lastname"
-                          type="lastname"
-                          placeholder="Last Name"
+                          label="Password"
+                          id="signup-form-password"
+                          icon="lock"
+                          iconPosition="left"
+                          name="password"
+                          placeholder="Password"
+                          type="password"
                           onChange={this.handleChange}
                       />
-                    </Form.Group>
-                    <Form.Input
-                        label="Email"
-                        id="signup-form-email"
-                        icon="user"
-                        iconPosition="left"
-                        name="email"
-                        type="email"
-                        placeholder="E-mail address"
-                        onChange={this.handleChange}
-                    />
-                    <Form.Input
-                        label="Password"
-                        id="signup-form-password"
-                        icon="lock"
-                        iconPosition="left"
-                        name="password"
-                        placeholder="Password"
-                        type="password"
-                        onChange={this.handleChange}
-                    />
-                    <Form.Button id="signup-form-submit" content="Submit" color="brown"/>
-                  </Segment>
-                </Form>
-                <Message color="brown">
-                  Already have an account? Login <Link to="/signin">here</Link>
-                </Message>
-                {this.state.error === '' ? (
-                    ''
-                ) : (
-                    <Message
-                        error
-                        header="Registration was not successful"
-                        content={this.state.error}
-                    />
-                )}
-              </Grid.Column>
-            </Grid>
-          </Container>
+                      <Form.Button id="signup-form-submit" content="Submit" color="brown" circular/>
+                    </Segment>
+                  </Form>
+                  <Message color="brown">
+                    Already have an account? Login <Link to="/signin">here</Link>
+                  </Message>
+                  {this.state.error === '' ? (
+                      ''
+                  ) : (
+                      <Message
+                          error
+                          header="Registration was not successful"
+                          content={this.state.error}
+                      />
+                  )}
+                </Grid.Column>
+              </Grid>
+            </Container>
+          </div>
         </div>
     );
   }

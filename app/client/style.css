@@ -2,14 +2,10 @@
   color: #a5673f !important;
 }
 
-.covid-landing-background {
-  background: url('https://cdn.discordapp.com/attachments/775474309598281731/777302912237568011/image1.jpg') no-repeat center center fixed;
-  background-size: cover;
-}
-
 .landing-background {
   background: black url("/images/landing.jpg") no-repeat fixed center center;
   background-size: cover;
+  position: relative;
   height: 400px;
   width: inherit;
 }
