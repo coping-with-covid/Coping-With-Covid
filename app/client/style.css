@@ -1,0 +1,11 @@
+.digits-landing-background {
+  background: black url("/images/landing.jpg") no-repeat fixed center center;
+  background-size: cover;
+  height: 400px;
+  width: inherit;
+}
+
+.intro {
+  font-size: 18px;
+}
+
