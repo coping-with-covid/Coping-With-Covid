@@ -59,7 +59,7 @@ class Signup extends React.Component {
           <Container id="signup-page">
             <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
               <Grid.Column>
-                <Header as="h2" textAlign="center" color="brown">
+                <Header as="h2" textAlign="center" color="pink">
                   Register your account
                 </Header>
                 <Form onSubmit={this.submit}>
@@ -102,11 +102,12 @@ class Signup extends React.Component {
                         type="password"
                         onChange={this.handleChange}
                     />
-                    <Form.Button id="signup-form-submit" content="Submit" color="brown"/>
+                    <Form.Button id="signup-form-submit" content="Submit" color="pink"/>
                   </Segment>
                 </Form>
-                <Message color="brown">
+                <Message color="pink">
                   Already have an account? Login <Link to="/signin">here</Link>
+                  <br/><Link to="/">Return to the homepage</Link>
                 </Message>
                 {this.state.error === '' ? (
                     ''
