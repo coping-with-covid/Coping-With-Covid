@@ -103,7 +103,7 @@ class Signup extends React.Component {
                           type="password"
                           onChange={this.handleChange}
                       />
-                      <Form.Button id="signup-form-submit" content="Submit"/>
+                      <Form.Button id="signup-form-submit" content="Submit" circular/>
                     </Segment>
                   </Form>
                   <Container textAlign="center">
