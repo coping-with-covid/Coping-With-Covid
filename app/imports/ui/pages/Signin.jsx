@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Message, Segment, Button } from 'semantic-ui-react';
 
 /**
  * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
@@ -43,10 +43,10 @@ export default class Signin extends React.Component {
     // Otherwise return the Login form.
     return (
         <div className="covid-landing-background">
-          <Container id="signin-page">
+          <Container id="signin-page" className="signin">
             <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
               <Grid.Column>
-                <Header as="h2" textAlign="center" color="brown">
+                <Header as="h2" textAlign="center">
                   Login to your account
                 </Header>
                 <Form onSubmit={this.submit}>
@@ -71,12 +71,16 @@ export default class Signin extends React.Component {
                         type="password"
                         onChange={this.handleChange}
                     />
-                    <Form.Button id="signin-form-submit" content="Submit" color="brown"/>
+                    <Form.Button id="signin-form-submit" content="Submit"/>
                   </Segment>
                 </Form>
-                <Message color="brown">
-                  <Link to="/signup">Click here to Register</Link>
-                </Message>
+                <Container textAlign="center">
+                <Button.Group size='large' className="orButton">
+                  <Button as={NavLink} exact to="/signup">Click here to Register</Button>
+                  <Button.Or/>
+                  <Button as={NavLink} exact to="/">Return to the Homepage</Button>
+                </Button.Group>
+                </Container>
                 {this.state.error === '' ? (
                     ''
                 ) : (

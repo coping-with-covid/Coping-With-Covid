@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Header } from 'semantic-ui-react';
 
@@ -7,8 +8,9 @@ export default class Signout extends React.Component {
   render() {
     Meteor.logout();
     return (
-      <Header id="signout-page" as="h2" textAlign="center" color="brown">
+      <Header id="signout-page" as="h2" textAlign="center">
         <p>You are signed out.</p>
+        <p><Link to="/">Return to the Homepage</Link></p>
       </Header>
     );
   }
