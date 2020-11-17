@@ -3,13 +3,23 @@
 }
 
 .ui.huge.header.title {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   color: #634f39;
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .ui.huge.header.title.ex {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+}
+
+.landing-background {
+  background: url("/images/landing.jpeg") no-repeat fixed center center;
+  background-size: cover;
+  position: relative;
+  height: 400px;
+  width: inherit;
 }
 
 .ui.huge.header.welcome {
@@ -20,15 +30,12 @@
   font-family: 'Libre Franklin', sans-serif;
 }
 
-.landing-background {
-  background: url("/images/landing.jpeg") no-repeat fixed center center;
-  background-size: cover;
-  position: relative;
-  height: 450px;
-  width: inherit;
+.ui.medium.header.intro {
+  font-family: 'Open Sans', sans-serif;
 }
 
 .ui.large.button.hollow {
+  margin: 10px 15px;
   color: #cfa29e;
   background-color: white;
   border-style: solid;
@@ -37,6 +44,7 @@
 }
 
 .ui.large.button.solid {
+  margin: 10px 15px;
   color: white;
   background-color: #cfa29e;
 }

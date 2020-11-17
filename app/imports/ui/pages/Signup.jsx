@@ -56,7 +56,7 @@ class Signup extends React.Component {
     }
     return (
         <div>
-            <Header className="ui huge header title ex" textAlign="centered">
+            <Header className="ui huge header title ex" textAlign="center">
               Register your account
             </Header>
           <div className="landing-background">

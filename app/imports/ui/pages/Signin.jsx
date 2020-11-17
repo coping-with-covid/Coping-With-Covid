@@ -43,7 +43,7 @@ export default class Signin extends React.Component {
     // Otherwise return the Login form.
     return (
         <div>
-          <Header className="ui huge header title ex" textAlign="centered">
+          <Header className="ui huge header title ex" textAlign="center">
             Login to your account
           </Header>
           <div className="landing-background">

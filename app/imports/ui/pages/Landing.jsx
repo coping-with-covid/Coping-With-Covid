@@ -12,7 +12,7 @@ class Landing extends React.Component {
           <div className="landing-background"/>
           <div style={introStyle} className="ui center aligned container">
             <Header className="ui huge header welcome">WELCOME TO COPING WITH COVID</Header>
-            <Header as="h3">
+            <Header className="ui medium header intro">
               Student mental health in higher education has been an increasing concern.
                The COVID-19 pandemic has negatively affected everybody, causing a lot of pressure, uneasiness, despondency,
               and inner issues for the understudies alongside their companions and their family.
