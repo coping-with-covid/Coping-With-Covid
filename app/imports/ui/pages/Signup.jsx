@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { NavLink, Redirect } from 'react-router-dom';
+import { Container, Form, Grid, Header, Message, Segment, Button } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 import { Profiles } from '../../api/profile/Profiles';
 
@@ -56,11 +56,11 @@ class Signup extends React.Component {
     }
     return (
         <div>
-            <Header className="ui huge header title ex" textAlign="center">
-              Register your account
-            </Header>
+          <Header className="ui huge header title ex" textAlign="center">
+            Register your account
+          </Header>
           <div className="landing-background auto">
-            <Container id="signup-page">
+            <Container id="signup-page" className="signin">
               <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
                 <Grid.Column>
                   <Form onSubmit={this.submit}>
@@ -103,12 +103,16 @@ class Signup extends React.Component {
                           type="password"
                           onChange={this.handleChange}
                       />
-                      <Form.Button id="signup-form-submit" content="Submit" color="brown" circular/>
+                      <Form.Button id="signup-form-submit" content="Submit"/>
                     </Segment>
                   </Form>
-                  <Message color="brown">
-                    Already have an account? Login <Link to="/signin">here</Link>
-                  </Message>
+                  <Container textAlign="center">
+                    <Button.Group size='large' className="orButton">
+                      <Button as={NavLink} exact to="/signin">Have an Account? Login</Button>
+                      <Button.Or/>
+                      <Button as={NavLink} exact to="/">Return to the Homepage</Button>
+                    </Button.Group>
+                  </Container>
                   {this.state.error === '' ? (
                       ''
                   ) : (

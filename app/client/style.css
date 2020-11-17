@@ -72,3 +72,17 @@
     color: #cfa29e;
     background-color: white;
 }
+
+.ui.large.buttons.orButton {
+    margin-top: 10px;
+}
+
+.signin .ui.button {
+    color: white;
+    background-color: #cfa29e;
+}
+
+.ui.large.buttons.orButton .or:before {
+    color: #cfa29e;
+    background-color: white;
+}
