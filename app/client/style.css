@@ -18,8 +18,12 @@
   background: url("/images/landing.jpeg") no-repeat fixed center center;
   background-size: cover;
   position: relative;
-  height: 400px;
   width: inherit;
+  height: 400px;
+}
+
+.landing-background.auto {
+  height: auto;
 }
 
 .ui.huge.header.welcome {
@@ -30,8 +34,14 @@
   font-family: 'Libre Franklin', sans-serif;
 }
 
-.ui.medium.header.intro {
+.intro {
+  font-size: 18px;
   font-family: 'Open Sans', sans-serif;
+}
+
+.ui.medium.header.us {
+  font-family: 'Open Sans', sans-serif;
+  color: #cfa29e;
 }
 
 .ui.large.button.hollow {
