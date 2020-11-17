@@ -5,16 +5,13 @@ import { NavLink } from 'react-router-dom';
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
-    const titleStyle = { marginTop: '15px', marginBottom: '15px' };
     const introStyle = { marginTop: '15px', marginBottom: '15px' };
     return (
         <div>
-          <div style={titleStyle}>
-            <Header textAlign="centered" size="huge" color="brown">COPING WITH COVID</Header>
-          </div>
+          <Header className="ui huge header title" textAlign="center">COPING WITH COVID</Header>
           <div className="landing-background"/>
           <div style={introStyle} className="ui center aligned container">
-            <Header size="huge">WELCOME TO COPING WITH COVID</Header>
+            <Header className="ui huge header welcome">WELCOME TO COPING WITH COVID</Header>
             <Header as="h3">
               Student mental health in higher education has been an increasing concern.
                The COVID-19 pandemic has negatively affected everybody, causing a lot of pressure, uneasiness, despondency,

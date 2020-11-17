@@ -35,7 +35,6 @@ export default class Signin extends React.Component {
 
   /** Render the signin form. */
   render() {
-    const titleStyle = { marginTop: '15px', marginBottom: '30px' };
     const { from } = this.props.location.state || { from: { pathname: '/' } };
     // if correct authentication, redirect to page instead of login screen
     if (this.state.redirectToReferer) {
@@ -44,11 +43,9 @@ export default class Signin extends React.Component {
     // Otherwise return the Login form.
     return (
         <div>
-          <div style={titleStyle}>
-            <Header textAlign="centered" size='huge' color="brown">
-              Login to your account
-            </Header>
-          </div>
+          <Header className="ui huge header title ex" textAlign="centered">
+            Login to your account
+          </Header>
           <div className="landing-background">
             <Container id="signin-page">
               <Grid textAlign="center" verticalAlign="middle" centered columns={2}>

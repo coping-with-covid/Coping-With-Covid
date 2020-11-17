@@ -1,24 +1,42 @@
 .ui.form .field label {
-  color: #a5673f !important;
+  color: #634f39 !important;
+}
+
+.ui.huge.header.title {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #634f39;
+}
+
+.ui.huge.header.title.ex {
+  margin-bottom: 30px;
+}
+
+.ui.huge.header.welcome {
+  margin: 15px 32.5%;
+  width: 35%;
+  color: #cfa29e;
+  font-size: 35px;
+  font-family: 'Libre Franklin', sans-serif;
 }
 
 .landing-background {
-  background: black url("/images/landing.jpg") no-repeat fixed center center;
+  background: url("/images/landing.jpeg") no-repeat fixed center center;
   background-size: cover;
   position: relative;
-  height: 400px;
+  height: 450px;
   width: inherit;
 }
 
 .ui.large.button.hollow {
-  color: lightpink;
+  color: #cfa29e;
   background-color: white;
   border-style: solid;
   border-width: 2px;
-  border-color: lightpink;
+  border-color: #cfa29e;
 }
 
 .ui.large.button.solid {
   color: white;
-  background-color: lightpink;
+  background-color: #cfa29e;
 }
