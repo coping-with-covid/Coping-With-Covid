@@ -32,10 +32,10 @@ class Signup extends React.Component {
         if (err) {
           this.setState({ error: err.reason });
         } else {
-          Profiles.collection.insert({ firstname, lastname, owner: email },
+          Profiles.collection.insert({ firstname, lastname, image: 'images/profile-placeholder.png', description: 'No description.', owner: email },
               (err2) => {
                 if (err2) {
-                  this.setState({ error: err2.reason }); // may need to fix
+                  this.setState({ error: 'Profile not created.' }); // may need to fix
                 } else {
                   this.setState({ error: '', redirectToReferer: true });
                 }

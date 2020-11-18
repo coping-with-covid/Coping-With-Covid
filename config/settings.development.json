@@ -5,8 +5,8 @@
   ],
 
   "defaultProfiles": [
-    { "firstname": "admin", "lastname": "foo", "owner": "admin@foo.com" },
-    { "firstname": "john", "lastname": "foo", "owner": "john@foo.com" }
+    { "firstname": "admin", "lastname": "foo", "image": "https://philipmjohnson.github.io/images/philip2.jpeg", "description": "The profile page of admin.", "owner": "admin@foo.com" },
+    { "firstname": "john", "lastname": "foo", "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4", "description": "The profile page of john", "owner": "john@foo.com" }
   ],
 
   "defaultData": [
