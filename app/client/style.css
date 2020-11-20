@@ -86,3 +86,21 @@
     color: #cfa29e;
     background-color: white;
 }
+
+.profile-background {
+    background: url('images/profile-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: 0 -400px;
+    height: 125px;
+    margin-bottom: 50px;
+}
+
+.profile-image {
+    padding-top: 10px;
+}
+
+.profile-desc {
+    padding-top: 10px;
+    padding-left: 25%;
+    padding-right: 25%;
+}

@@ -25,26 +25,25 @@ class Signup extends React.Component {
     const { firstname, lastname, email, password } = this.state;
     if (firstname === '') {
       this.setState({ error: 'Please enter your first name.' });
-    } else
-      if (lastname === '') {
-        this.setState({ error: 'Please enter your last name.' });
-      } else {
-        Accounts.createUser({ email, username: email, password }, (err) => {
-          if (err) {
-            this.setState({ error: err.reason });
-          } else {
-            Profiles.collection.insert({ firstname, lastname, owner: email },
-                (err2) => {
-                  if (err2) {
-                    this.setState({ error: err2.reason }); // may need to fix
-                  } else {
-                    this.setState({ error: '', redirectToReferer: true });
-                  }
-                });
-            this.setState({ error: '', redirectToReferer: true });
-          }
-        });
-      }
+    } else if (lastname === '') {
+      this.setState({ error: 'Please enter your last name.' });
+    } else {
+      Accounts.createUser({ email, username: email, password }, (err) => {
+        if (err) {
+          this.setState({ error: err.reason });
+        } else {
+          Profiles.collection.insert({ firstname, lastname, image: 'images/profile-placeholder.png', description: 'No description.', owner: email },
+              (err2) => {
+                if (err2) {
+                  this.setState({ error: 'Profile not created.' });
+                } else {
+                  this.setState({ error: '', redirectToReferer: true });
+                }
+              });
+          this.setState({ error: '', redirectToReferer: true });
+        }
+      });
+    }
   }
 
   /** Display the signup form. Redirect to add page after successful registration and login. */
