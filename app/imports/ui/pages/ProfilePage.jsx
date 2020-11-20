@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Loader, Header, Image, Button } from 'semantic-ui-react';
+import { Container, Loader, Header, Image, Button, Grid, Input } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Profiles } from '../../api/profile/Profiles';
@@ -28,8 +28,20 @@ class ProfilePage extends React.Component {
           </Header>
           <Container textAlign="center" className="profile-desc">
             <p>{profile.description}</p>
-            <Button as={NavLink} exact to={`/edit/${profile._id}`}>Update Info</Button>
+            <Button as={NavLink} exact to={`/edit/${profile._id}`} color="grey">Update Info</Button>
           </Container>
+          <Grid columns={3} stackable>
+            <Grid.Row>
+              <Grid.Column verticalAlign="bottom">
+                <Header size="medium">All Posts</Header>
+              </Grid.Column>
+              <Grid.Column>
+              </Grid.Column>
+              <Grid.Column textAlign="right">
+                <Input icon="search" placeholder="Search posts..."/>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </Container>
     );
   }
