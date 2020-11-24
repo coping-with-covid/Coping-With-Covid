@@ -7,28 +7,17 @@ class Landing extends React.Component {
   render() {
     const introStyle = { marginTop: '15px', marginBottom: '15px' };
     const usStyle = { marginTop: '50px', marginBottom: '15px' };
+    const menuStyle = { height: '50px' };
 
     return (
         <div>
-          <Menu size='huge' className="menu" borderless>
-          <Grid container columns={4}>
-            <Grid.Column>
-              <Menu.Item icon="huge home" as={NavLink} exact to="/"/>
+          <Menu size='huge' borderless style={menuStyle}>
+            <Grid centered container={4}>
               <Menu.Item as={NavLink} exact to="/">Home</Menu.Item>
-            </Grid.Column>
-            <Grid.Column>
-              <Menu.Item icon="huge wordpress forms" as={NavLink} exact to="/"/>
-              <Menu.Item circular as={NavLink} exact to="/">Forum</Menu.Item>
-            </Grid.Column>
-            <Grid.Column>
-              <Menu.Item icon="huge question" as={NavLink} exact to="/"/>
-              <Menu.Item circular as={NavLink} exact to="/">FAQs</Menu.Item>
-            </Grid.Column>
-            <Grid.Column>
-              <Menu.Item icon="huge user" as={NavLink} exact to="/profile"/>
-              <Menu.Item as={NavLink} exact to="/profile">  Profile</Menu.Item>
-            </Grid.Column>
-          </Grid>
+              <Menu.Item as={NavLink} exact to="/list">Forum</Menu.Item>
+              <Menu.Item as={NavLink} exact to="/add">FAQs</Menu.Item>
+              <Menu.Item as={NavLink} exact to="/profile">Profile</Menu.Item>
+            </Grid>
           </Menu>
           <div className="landing-background"/>
           <div style={introStyle} className="ui center aligned container">
