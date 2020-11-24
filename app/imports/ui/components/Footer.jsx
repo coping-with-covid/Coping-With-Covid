@@ -11,7 +11,7 @@ class Footer extends React.Component {
               Department of Information and Computer Sciences <br />
               University of Hawaii<br />
               Honolulu, HI 96822 <br />
-            <a href="http://143.110.232.78/#/">Home Page</a>
+            <a href="https://coping-with-covid.github.io/">Coping With COVID Home Page</a>
           </div>
         </footer>
     );
