@@ -109,4 +109,11 @@
     background-color: white;
     box-shadow: none;
     border: none;
+    padding-left: 20px;
 }
+
+.ui.borderless.topnav.menu{
+  background-color: #00cccc;
+  font-family: 'Open Sans', sans-serif;
+}
+

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Dropdown, Header } from 'semantic-ui-react';
+import { Menu, Dropdown, Header, Image } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
@@ -13,7 +13,8 @@ class NavBar extends React.Component {
     return (
         <div>
           {this.props.currentUser ? (
-              [<Menu key='menuBar' style={menuStyle} attached="top" borderless>
+              [<Menu key='menuBar' style={menuStyle} attached="top" borderless className="topnav">
+                <Image size='tiny' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Hawaii_Warriors_logo.svg/1200px-Hawaii_Warriors_logo.sv.png"></Image>
                 <Menu.Item as={NavLink} activeClassName="" exact to="/">
                   <Header as='h1'>COPING WITH COVID</Header>
                 </Menu.Item>
