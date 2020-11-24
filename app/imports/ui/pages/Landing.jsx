@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Button, Grid } from 'semantic-ui-react';
+import { Header, Button, Grid, Menu } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
@@ -9,7 +9,14 @@ class Landing extends React.Component {
     const usStyle = { marginTop: '50px', marginBottom: '15px' };
     return (
         <div>
-          <Header className="ui huge header title" textAlign="center">COPING WITH COVID</Header>
+          <Menu borderless className="menu">
+            <Grid centered container={4}>
+              <Menu.Item circular as={NavLink} exact to="/">Home</Menu.Item>
+              <Menu.Item circular as={NavLink} exact to="/list">Forum</Menu.Item>
+              <Menu.Item circular as={NavLink} exact to="/add">FAQs</Menu.Item>
+              <Menu.Item circular as={NavLink} exact to="/profile">Profile</Menu.Item>
+            </Grid>
+          </Menu>
           <div className="landing-background"/>
           <div style={introStyle} className="ui center aligned container">
             <Header className="ui huge header welcome">WELCOME TO COPING WITH COVID</Header>

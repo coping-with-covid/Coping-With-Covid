@@ -104,3 +104,9 @@
     padding-left: 25%;
     padding-right: 25%;
 }
+
+.ui.borderless.menu.menu{
+    background-color: white;
+    box-shadow: none;
+    border: none;
+}
