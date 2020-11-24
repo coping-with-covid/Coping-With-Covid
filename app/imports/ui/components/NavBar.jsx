@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Dropdown, Header } from 'semantic-ui-react';
+import { Menu, Dropdown, Header, Grid } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
@@ -19,6 +19,16 @@ class NavBar extends React.Component {
                 <Menu.Item as={NavLink} activeClassName="" exact to="/">
                   <Header as='h1' className="ui header title">COPING WITH COVID</Header>
                   </Menu.Item>
+                  <div>
+                  <Menu size='huge' borderless style={menuStyle}>
+                    <Grid centered container={4}>
+                      <Menu.Item as={NavLink} exact to="/">Home</Menu.Item>
+                      <Menu.Item as={NavLink} exact to="/list">Forum</Menu.Item>
+                      <Menu.Item as={NavLink} exact to="/add">FAQs</Menu.Item>
+                      <Menu.Item as={NavLink} exact to="/profile">Profile</Menu.Item>
+                    </Grid>
+                  </Menu>
+                  </div>
                 </div>
                 {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
                     <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
