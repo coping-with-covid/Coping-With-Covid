@@ -21,7 +21,7 @@ class NavBar extends React.Component {
                   </Menu.Item>
                   <div>
                   <Menu size='huge' borderless style={menuStyle}>
-                    <Grid centered container={4}>
+                    <Grid centered container>
                       <Menu.Item as={NavLink} exact to="/">Home</Menu.Item>
                       <Menu.Item as={NavLink} exact to="/list">Forum</Menu.Item>
                       <Menu.Item as={NavLink} exact to="/add">FAQs</Menu.Item>
