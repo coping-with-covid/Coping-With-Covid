@@ -3,35 +3,22 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Dropdown, Header, Grid } from 'semantic-ui-react';
+import { Menu, Dropdown, Header } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
   render() {
-    const menuStyle = { height: 50, border: '0px' };
-    const gridStyle = { height: 50, paddingTop: '10px' };
+    const menuStyle = { height: '50px', border: '0px', margin: '0px' };
     return (
         <div>
-          <Menu style={menuStyle} key='menuBar' attached="top" borderless>
-            <div className="ui center aligned container">
+          <Menu style={menuStyle} widths={5} key='menuBar' attached="top" borderless>
+            <Menu.Item/>
+            <Menu.Item/>
               <Menu.Item as={NavLink} activeClassName="" exact to="/">
                 <Header className="ui huge header title">COPING WITH COVID</Header>
               </Menu.Item>
-              {this.props.currentUser ? (
-                  <Menu size='huge' borderless>
-                    <Grid centered container style={gridStyle}>
-                      <Menu.Item as={NavLink} exact to="/">Home</Menu.Item>
-                      <Menu.Item as={NavLink} exact to="/list">Forum</Menu.Item>
-                      <Menu.Item as={NavLink} exact to="/add">FAQs</Menu.Item>
-                      <Menu.Item as={NavLink} exact to="/profile">Profile</Menu.Item>
-                    </Grid>
-                  </Menu>
-              ) : ''}
-            </div>
-            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
-            ) : ''}
+            <Menu.Item/>
             <Menu.Item position="right">
               {this.props.currentUser === '' ? (
                   <Dropdown text="Login" pointing="top right" icon={'user'}>
@@ -49,6 +36,17 @@ class NavBar extends React.Component {
               )}
             </Menu.Item>
           </Menu>
+          {this.props.currentUser ? (
+              <Menu style={menuStyle} widths={12} size='huge' attached='top' borderless>
+                  <Menu.Item as={NavLink} exact to="/">Home</Menu.Item>
+                  <Menu.Item as={NavLink} exact to="/list">Forum</Menu.Item>
+                  <Menu.Item as={NavLink} exact to="/add">FAQs</Menu.Item>
+                  <Menu.Item as={NavLink} exact to="/profile">Profile</Menu.Item>
+                  {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                      <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
+                  ) : ''}
+              </Menu>
+          ) : ''}
         </div>
     );
   }

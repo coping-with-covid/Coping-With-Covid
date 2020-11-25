@@ -55,15 +55,15 @@ class Signup extends React.Component {
     }
     return (
         <div>
-          <Header className="ui huge header title ex" textAlign="center">
-            Register your account
-          </Header>
           <div className="landing-background auto">
             <Container id="signup-page" className="signin">
               <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
                 <Grid.Column>
                   <Form onSubmit={this.submit}>
                     <Segment stacked>
+                      <Header className="ui large header sign" textAlign="center">
+                        Register your account
+                      </Header>
                       <Form.Group widths='equal'>
                         <Form.Input
                             label="First Name"

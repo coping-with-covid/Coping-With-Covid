@@ -10,10 +10,6 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-.ui.huge.header.title.ex {
-  margin-bottom: 25px;
-}
-
 .landing-background {
   background: url("/images/landing.jpeg") no-repeat fixed center center;
   background-size: cover;
@@ -23,6 +19,7 @@
 }
 
 .landing-background.auto {
+  padding-top: 15px;
   height: auto;
 }
 
@@ -53,10 +50,26 @@
   border-color: #cfa29e;
 }
 
+.ui.large.button.hollow:hover {
+  background-color: lightgray;
+}
+
 .ui.large.button.solid {
   margin: 10px 15px;
   color: white;
   background-color: #cfa29e;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #cfa29e;
+}
+
+.ui.large.button.solid:hover {
+  background-color: lightgray;
+}
+
+.ui.large.header.sign {
+  color: #cfa29e;
+  font-size: 24px;
 }
 
 .ui.large.buttons.orButton {
