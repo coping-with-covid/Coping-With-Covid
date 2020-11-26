@@ -16,7 +16,8 @@ class ProfilePage extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const profile = this.props.profiles[0];
+    const profile = this.props.profile;
+    const currentUser = Meteor.user().username;
     return (
         <Container>
           <div className="profile-background">
@@ -28,7 +29,7 @@ class ProfilePage extends React.Component {
           </Header>
           <Container textAlign="center" className="profile-desc">
             <p>{profile.description}</p>
-            <Button as={NavLink} exact to={`/edit/${profile._id}`} color="grey">Update Info</Button>
+            {currentUser === profile.owner && <Button as={NavLink} exact to={`/edit/${profile._id}`} color="grey">Update Info</Button>}
           </Container>
           <Grid columns={3} stackable>
             <Grid.Row>
@@ -49,16 +50,17 @@ class ProfilePage extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 ProfilePage.propTypes = {
-  profiles: PropTypes.array.isRequired,
+  profile: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-export default withTracker(() => {
+export default withTracker(({ match }) => {
+  const docId = match.params._id;
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Profiles.userPublicationName);
   return {
-    profiles: Profiles.collection.find({}).fetch(),
+    profile: Profiles.collection.findOne(docId),
     ready: subscription.ready(),
   };
 })(ProfilePage);

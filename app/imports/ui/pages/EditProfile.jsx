@@ -34,7 +34,11 @@ class EditProfile extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
-    const { from } = this.props.location.state || { from: { pathname: '/profile' } };
+    const { from } = this.props.location.state || { from: { pathname: `/profile/${this.props.doc._id}` } };
+    // redirect if incorrect authentication
+    if (Meteor.user().username !== this.props.doc.owner) {
+      this.setState({ redirectToReferer: true });
+    }
     // if correct authentication, redirect to page instead of login screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
