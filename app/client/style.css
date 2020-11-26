@@ -88,7 +88,7 @@
 }
 
 .profile-background {
-    background: url('images/profile-background.jpg') no-repeat center center fixed;
+    background: url("/images/profile-background.jpg") no-repeat center center fixed;
     background-size: cover;
     background-position: 0 -400px;
     height: 125px;
@@ -103,4 +103,14 @@
     padding-top: 10px;
     padding-left: 25%;
     padding-right: 25%;
+}
+
+.ui.button.website-button {
+  background-color: #d0e0e3ff;
+  color: #45818e;
+}
+
+.ui.menu.website-menu {
+  box-shadow: none;
+  border: none;
 }

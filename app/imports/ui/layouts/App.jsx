@@ -17,6 +17,9 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import ProfilePage from '../pages/ProfilePage';
 import EditProfile from '../pages/EditProfile';
+import WebsitesPage from '../pages/WebsitesPage';
+import AddWebsite from '../pages/AddWebsite';
+import EditWebsite from '../pages/EditWebsite';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -30,7 +33,10 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/profile" component={ProfilePage}/>
-              <ProtectedRoute path="/edit/:_id" component={EditProfile}/>
+              <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
+              <ProtectedRoute path="/websites" component={WebsitesPage}/>
+              <ProtectedRoute path="/addsite" component={AddWebsite}/>
+              <ProtectedRoute path="/editsite/:_id" component={EditWebsite}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>

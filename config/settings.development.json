@@ -1,18 +1,77 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    {
+      "email": "admin@foo.com",
+      "password": "changeme",
+      "role": "admin"
+    },
+    {
+      "email": "john@foo.com",
+      "password": "changeme"
+    }
   ],
-
   "defaultProfiles": [
-    { "firstname": "admin", "lastname": "foo", "image": "https://philipmjohnson.github.io/images/philip2.jpeg", "description": "The profile page of admin.", "owner": "admin@foo.com" },
-    { "firstname": "john", "lastname": "foo", "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4", "description": "The profile page of john", "owner": "john@foo.com" }
+    {
+      "firstname": "admin",
+      "lastname": "foo",
+      "image": "https://philipmjohnson.github.io/images/philip2.jpeg",
+      "description": "The profile page of admin.",
+      "owner": "admin@foo.com"
+    },
+    {
+      "firstname": "john",
+      "lastname": "foo",
+      "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4",
+      "description": "The profile page of john",
+      "owner": "john@foo.com"
+    }
   ],
-
+  "defaultWebsites": [
+    {
+      "image": "https://philipmjohnson.github.io/images/philip2.jpeg",
+      "title": "USAFacts Tracker",
+      "url": "https://usafacts.org/issues/coronavirus/",
+      "firstname": "Phil",
+      "lastname": "Johnson",
+      "date": "11/21/2020",
+      "description": "Dive into the stats and data on all things COVID-19. Explore metrics including daily case counts, government spending to help people and businesses, health risk factors, and the virus's economic impact.",
+      "owner": "john@foo.com"
+    },
+    {
+      "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4",
+      "title": "Coronavirus Watch",
+      "url": "https://coronaviruswatch.ircai.org/?country=All&dashboard=news",
+      "firstname": "Henri",
+      "lastname": "Cas",
+      "date": "11/20/2020",
+      "description": "worldwide media, advanced visualizations and more",
+      "owner": "john@foo.com"
+    }
+  ],
   "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+    {
+      "name": "Basket",
+      "quantity": 3,
+      "owner": "john@foo.com",
+      "condition": "excellent"
+    },
+    {
+      "name": "Bicycle",
+      "quantity": 2,
+      "owner": "john@foo.com",
+      "condition": "poor"
+    },
+    {
+      "name": "Banana",
+      "quantity": 2,
+      "owner": "admin@foo.com",
+      "condition": "good"
+    },
+    {
+      "name": "Boogie Board",
+      "quantity": 2,
+      "owner": "admin@foo.com",
+      "condition": "excellent"
+    }
   ]
 }
