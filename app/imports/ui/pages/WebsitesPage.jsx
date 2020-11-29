@@ -6,6 +6,8 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Website from '../components/Website';
 import { Websites } from '../../api/website/Websites';
+import { Profiles } from '../../api/profile/Profiles';
+import { Comments } from '../../api/comment/Comments';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListStuff extends React.Component {
@@ -46,7 +48,13 @@ class ListStuff extends React.Component {
             </Menu.Item>
           </Menu>
           <Card.Group>
-            {this.props.websites.map((website, index) => <Website key={index} website={website}/>)}
+            {this.props.websites.map((website, index) => <Website
+                key={index}
+                website={website}
+                profile={this.props.profiles.find(profile => (profile.owner === website.owner))}
+                comments={this.props.comments.filter(comment => (comment.websiteId === website._id))}
+                currentUser={this.props.profiles.find(profile => (profile.owner) === Meteor.user().username)}
+            />)}
           </Card.Group>
         </Container>
     );
@@ -56,6 +64,8 @@ class ListStuff extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ListStuff.propTypes = {
   websites: PropTypes.array.isRequired,
+  profiles: PropTypes.array.isRequired,
+  comments: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -63,8 +73,12 @@ ListStuff.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Websites.userPublicationName);
+  const subscription2 = Meteor.subscribe(Profiles.userPublicationName);
+  const subscription3 = Meteor.subscribe(Comments.userPublicationName);
   return {
     websites: Websites.collection.find({}).fetch(),
-    ready: subscription.ready(),
+    profiles: Profiles.collection.find({}).fetch(),
+    comments: Comments.collection.find({}).fetch(),
+    ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
   };
 })(ListStuff);

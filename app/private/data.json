@@ -82,5 +82,57 @@
     { "email": "thomashen@yahoo.com", "password": "test" },
     { "email": "solomonhud@hotmail.com", "password": "test" },
     { "email": "vaughnhill@yahoo.com", "password": "test" }
+  ],
+  "websites": [
+    {
+      "image": "https://www.fakepersongenerator.com/Face/female/female1021883256104.jpg",
+      "title": "USAFacts Tracker",
+      "url": "https://usafacts.org/issues/coronavirus/",
+      "firstname": "Jocelyn",
+      "lastname": "Jones",
+      "date": "11/20/2020",
+      "description": "Dive into the stats and data on all things COVID-19. Explore metrics including daily case counts, government spending to help people and businesses, health risk factors, and the virus's economic impact.",
+      "owner": "jocelynjones@yahoo.com"
+    },
+    {
+      "image": "https://www.fakepersongenerator.com/Face/male/male1085151590546.jpg",
+      "title": "Coronavirus Watch",
+      "url": "https://coronaviruswatch.ircai.org/?country=All&dashboard=news",
+      "firstname": "Michael",
+      "lastname": "Trask",
+      "date": "11/21/2020",
+      "description": "worldwide media, advanced visualizations and more",
+      "owner": "michaeltrask@gmail.com"
+    },
+    {
+      "image": "https://www.fakepersongenerator.com/Face/female/female20161025771450378.jpg",
+      "title": "Johns Hopkins Map",
+      "url": "https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6",
+      "firstname": "Dorothy",
+      "lastname": "Benton",
+      "date": "11/21/2020",
+      "description": "COVID-19 Dashboard by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University (JHU)",
+      "owner": "dorothyben@hotmail.com"
+    },
+    {
+      "image": "https://www.fakepersongenerator.com/Face/female/female20161024869831909.jpg",
+      "title": "COVID Outbreak",
+      "url": "https://en.wikipedia.org/wiki/COVID-19_pandemic",
+      "firstname": "Jenna",
+      "lastname": "Kelty",
+      "date": "11/22/2020",
+      "description": "The COVID-19 pandemic, also known as the coronavirus pandemic, is an ongoing pandemic of coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2), first identified in December 2019 in Wuhan, China.",
+      "owner": "jennakelty@hotmail.com"
+    },
+    {
+      "image": "https://www.fakepersongenerator.com/Face/male/male1084845702179.jpg",
+      "title": "CDC When To Quarantine",
+      "url": "https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/quarantine.html",
+      "firstname": "Thomas",
+      "lastname": "Hendrickson",
+      "date": "11/22/2020",
+      "description": "Quarantine is used to keep someone who might have been exposed to COVID-19 away from others. Quarantine helps prevent spread of disease that can occur before a person knows they are sick or if they are infected with the virus without feeling symptoms.",
+      "owner": "thomashen@yahoo.com"
+    }
   ]
 }

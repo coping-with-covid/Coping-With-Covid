@@ -36,13 +36,6 @@ if (Profiles.collection.find().count() === 0) {
   }
 }
 
-if (Websites.collection.find().count() === 0) {
-  if (Meteor.settings.defaultWebsites) {
-    console.log('Creating default websites.');
-    Meteor.settings.defaultWebsites.map(website => addWebsite(website));
-  }
-}
-
 /**
  * If the loadAssetsFile field in settings.development.json is true, then load the data in private/data.json.
  * This approach allows you to initialize your system with large amounts of data.
@@ -56,4 +49,11 @@ if ((Meteor.settings.loadAssetsFile) && (Profiles.collection.find().count() < 4)
   console.log(`Loading data from private/${assetsFileName}`);
   const jsonData = JSON.parse(Assets.getText(assetsFileName));
   jsonData.profiles.map(profile => addProfiles(profile));
+}
+
+if ((Meteor.settings.loadAssetsFile) && (Websites.collection.find().count() === 0)) {
+  const assetsFileName = 'data.json';
+  console.log(`Loading data from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+  jsonData.websites.map(website => addWebsite(website));
 }

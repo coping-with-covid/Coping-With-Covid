@@ -47,6 +47,7 @@ class NavBar extends React.Component {
               <Menu style={menuStyle} widths={12} size='huge' attached='top' borderless>
                 <Menu.Item as={NavLink} exact to="/">Home</Menu.Item>
                 <Menu.Item as={NavLink} exact to="/list">Forum</Menu.Item>
+                <Menu.Item as={NavLink} exact to="/websites">Websites</Menu.Item>
                 <Menu.Item as={NavLink} exact to="/add">FAQs</Menu.Item>
                 <Menu.Item as={NavLink} exact to={`/profile/${this.props.profile._id}`}>Profile</Menu.Item>
                 {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
