@@ -70,5 +70,17 @@
       "description": "Extreme pop culture specialist. Travel enthusiast. Internet maven. Avid coffee trailblazer.",
       "owner": "vaughnhill@yahoo.com"
     }
+  ],
+  "accounts": [
+    { "email": "jocelynjones@yahoo.com", "password": "test" },
+    { "email": "michaeltrask@gmail.com", "password": "test" },
+    { "email": "dorothyben@hotmail.com", "password": "test" },
+    { "email": "jennakelty@hotmail.com", "password": "test" },
+    { "email": "virginiajem@yahoo.com", "password": "test" },
+    { "email": "williambarba@gmail.com", "password": "test" },
+    { "email": "sarahknox@gmail.com", "password": "test" },
+    { "email": "thomashen@yahoo.com", "password": "test" },
+    { "email": "solomonhud@hotmail.com", "password": "test" },
+    { "email": "vaughnhill@yahoo.com", "password": "test" }
   ]
 }

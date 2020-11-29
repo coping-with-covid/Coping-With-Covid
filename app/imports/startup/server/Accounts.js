@@ -26,3 +26,11 @@ if (Meteor.users.find().count() === 0) {
     console.log('Cannot initialize the database!  Please invoke meteor with a settings file.');
   }
 }
+
+/** loading accounts in data.json */
+if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 4)) {
+  const assetsFileName = 'data.json';
+  console.log(`Loading data from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+  jsonData.accounts.map(({ email, password, role }) => createUser(email, password, role));
+}
