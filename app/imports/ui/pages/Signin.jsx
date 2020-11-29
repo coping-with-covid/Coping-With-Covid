@@ -43,15 +43,15 @@ export default class Signin extends React.Component {
     // Otherwise return the Login form.
     return (
         <div>
-          <Header className="ui huge header title ex" textAlign="center">
-            Login to your account
-          </Header>
           <div className="landing-background auto">
             <Container id="signin-page" className="signin">
               <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
                 <Grid.Column>
                   <Form onSubmit={this.submit}>
                     <Segment stacked>
+                      <Header className="ui large header sign" textAlign="center">
+                        Login to your account
+                      </Header>
                       <Form.Input
                           label="Email"
                           id="signin-form-email"

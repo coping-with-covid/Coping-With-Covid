@@ -7,9 +7,9 @@ class Landing extends React.Component {
   render() {
     const introStyle = { marginTop: '15px', marginBottom: '15px' };
     const usStyle = { marginTop: '50px', marginBottom: '15px' };
+
     return (
         <div>
-          <Header className="ui huge header title" textAlign="center">COPING WITH COVID</Header>
           <div className="landing-background"/>
           <div style={introStyle} className="ui center aligned container">
             <Header className="ui huge header welcome">WELCOME TO COPING WITH COVID</Header>
