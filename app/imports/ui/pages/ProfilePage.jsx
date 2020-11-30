@@ -29,7 +29,7 @@ class ProfilePage extends React.Component {
           </Header>
           <Container textAlign="center" className="profile-desc">
             <p>{profile.description}</p>
-            {currentUser === profile.owner && <Button as={NavLink} exact to={`/edit/${profile._id}`} color="grey">Update Info</Button>}
+            {currentUser === profile.owner && <Button as={NavLink} exact to={`/editprofile/${profile._id}`} color="grey">Update Info</Button>}
           </Container>
           <Grid columns={3} stackable>
             <Grid.Row>
