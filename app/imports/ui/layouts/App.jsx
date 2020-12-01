@@ -21,6 +21,7 @@ import WebsitesPage from '../pages/WebsitesPage';
 import AddWebsite from '../pages/AddWebsite';
 import EditWebsite from '../pages/EditWebsite';
 import Home from '../pages/Home';
+import About from '../pages/About';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -37,6 +38,7 @@ class App extends React.Component {
               <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
               <ProtectedRoute path="/websites" component={WebsitesPage}/>
               <ProtectedRoute path="/home" component={Home}/>
+              <ProtectedRoute path="/about" component={About}/>
               <ProtectedRoute path="/addsite" component={AddWebsite}/>
               <ProtectedRoute path="/editsite/:_id" component={EditWebsite}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
