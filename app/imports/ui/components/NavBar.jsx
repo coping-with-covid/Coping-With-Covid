@@ -45,7 +45,7 @@ class NavBar extends React.Component {
           </Menu>
           {this.props.currentUser ? (
               <Menu style={menuStyle} widths={12} size='huge' attached='top' borderless>
-                <Menu.Item as={NavLink} exact to="/">Home</Menu.Item>
+                <Menu.Item as={NavLink} exact to="/home">Home</Menu.Item>
                 <Menu.Item as={NavLink} exact to="/list">Forum</Menu.Item>
                 <Menu.Item as={NavLink} exact to="/websites">Websites</Menu.Item>
                 <Menu.Item as={NavLink} exact to="/add">FAQs</Menu.Item>
