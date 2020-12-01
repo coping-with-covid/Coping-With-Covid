@@ -53,7 +53,7 @@ class EditWebsite extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center" inverted>Edit Contact</Header>
+            <Header className="ui large header sign" textAlign="center">Edit Website</Header>
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <Segment>
                 <TextField name='title'/>

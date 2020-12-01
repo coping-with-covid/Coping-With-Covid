@@ -62,7 +62,7 @@ class AddWebsite extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center" inverted>Add Contact</Header>
+            <Header className="ui large header sign" textAlign="center">Add Website</Header>
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)}>
               <Segment>
                 <TextField name='title'/>
