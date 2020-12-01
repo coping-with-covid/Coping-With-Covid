@@ -19,13 +19,13 @@ class ProfilePage extends React.Component {
     const profile = this.props.profile;
     const currentUser = Meteor.user().username;
     return (
-        <Container>
+        <Container id="profile-page">
           <div className="profile-background">
             <Image className="profile-image" src={profile.image} circular centered size="small"/>
           </div>
           <Header size="huge" textAlign="center">
             {profile.firstname} {profile.lastname}
-            <Header.Subheader>{profile.owner}</Header.Subheader>
+            <Header.Subheader id="profile-current-user">{profile.owner}</Header.Subheader>
           </Header>
           <Container textAlign="center" className="profile-desc">
             <p>{profile.description}</p>
