@@ -4,6 +4,7 @@ import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
 import { websitesPage } from './websites.page';
 import { profilePage } from './profile.page';
+import { homePage } from './home.page';
 
 /* global fixture:false, test:false */
 
@@ -21,11 +22,12 @@ test('Test that signin and signout work', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
+  await homePage.isDisplayed(testController);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });
 
-test('Test News Page', async (testController) => {
+test('Test Websites Page', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoWebsitesPage(testController);
