@@ -1,7 +1,7 @@
 import React from 'react';
 import { Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Comment extends React.Component {
@@ -15,7 +15,7 @@ class Comment extends React.Component {
           <Feed.Content>
             <Feed.Date content={comment.createdAt.toLocaleDateString('en-US')} />
             <Feed.Summary>
-              {comment.firstname} {comment.lastname}: {comment.comment}
+              <Link to={`/profile/${comment.profileId}`}>{comment.firstname} {comment.lastname}:</Link> {comment.comment}
             </Feed.Summary>
           </Feed.Content>
         </Feed.Event>

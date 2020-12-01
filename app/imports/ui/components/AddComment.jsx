@@ -26,7 +26,8 @@ class AddComment extends React.Component {
     const firstname = profile.firstname;
     const lastname = profile.lastname;
     const image = profile.image;
-    Comments.collection.insert({ comment, websiteId, createdAt, firstname, lastname, image },
+    const profileId = profile._id;
+    Comments.collection.insert({ comment, websiteId, createdAt, firstname, lastname, image, profileId },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');

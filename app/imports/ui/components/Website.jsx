@@ -2,7 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Card, Image, Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link, NavLink } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import Comment from './Comment';
 import AddComment from './AddComment';
 
@@ -19,7 +19,7 @@ class Website extends React.Component {
                 src={website.image}
             />
             <Card.Header><a href={website.url} rel="noreferrer" target="_blank">{website.title}</a></Card.Header>
-            <Card.Meta as={NavLink} exact to={`/profile/${this.props.profile._id}`}>Posted by {website.firstname} {website.lastname}</Card.Meta>
+            <Card.Meta>Posted by <Link to={`/profile/${this.props.profile._id}`}>{website.firstname} {website.lastname}</Link></Card.Meta>
             <Card.Meta>{website.date.toLocaleDateString('en-US')}</Card.Meta>
             <Card.Description>
               {website.description}

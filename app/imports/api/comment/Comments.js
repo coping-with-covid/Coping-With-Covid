@@ -13,6 +13,7 @@ class CommentsCollection {
     this.schema = new SimpleSchema({
       comment: String,
       websiteId: String,
+      profileId: String,
       image: String,
       firstname: String,
       lastname: String,
