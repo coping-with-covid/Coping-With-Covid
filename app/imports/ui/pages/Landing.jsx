@@ -10,7 +10,7 @@ class Landing extends React.Component {
 
     return (
         <div>
-          <div className="landing-background"/>
+          <div id='landing-page' className="landing-background"/>
           <div style={introStyle} className="ui center aligned container">
             <Header className="ui huge header welcome">WELCOME TO COPING WITH COVID</Header>
             <p className="intro">
