@@ -17,7 +17,13 @@
   width: inherit;
   height: 400px;
 }
-
+.home-background {
+  background: url("/images/Home.png") no-repeat fixed center center;
+  background-size: cover;
+  position: relative;
+  width: inherit;
+  height: 400px;
+}
 .landing-background.auto {
   padding-top: 15px;
   height: auto;
