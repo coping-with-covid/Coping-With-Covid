@@ -4,28 +4,28 @@
       "firstname": "Jocelyn",
       "lastname": "Jones",
       "image": "https://www.fakepersongenerator.com/Face/female/female1021883256104.jpg",
-      "description": "Typical travel scholar. Alcohol practitioner. Hardcore zombie fanatic. Evil organizer. Music guru. General introvert.",
+      "description": "Typical travel scholar. Tea practitioner. Hardcore zombie fanatic. Evil organizer. Music guru. General introvert.",
       "owner": "jocelynjones@yahoo.com"
     },
     {
       "firstname": "Michael",
       "lastname": "Trask",
       "image": "https://www.fakepersongenerator.com/Face/male/male1085151590546.jpg",
-      "description": "Subtly charming introvert. Twitter fanatic. Avid beer lover. Passionate reader. Total travel guru. Professional tv aficionado.",
+      "description": "Subtly charming introvert. Twitter fanatic. Avid tea lover. Passionate reader. Total travel guru. Professional tv aficionado.",
       "owner": "michaeltrask@gmail.com"
     },
     {
       "firstname": "Dorothy",
       "lastname": "Benton",
       "image": "https://www.fakepersongenerator.com/Face/female/female20161025771450378.jpg",
-      "description": "Tv scholar. Avid introvert. Lifelong problem solver. Internet fan. Devoted beer evangelist.",
+      "description": "Tv scholar. Avid introvert. Lifelong problem solver. Internet fan. Devoted tea evangelist.",
       "owner": "dorothyben@hotmail.com"
     },
     {
       "firstname": "Jenna",
       "lastname": "Kelty",
       "image": "https://www.fakepersongenerator.com/Face/female/female20161024869831909.jpg",
-      "description": "Internet advocate. Troublemaker. Problem solver. Falls down a lot. Alcohol aficionado. Thinker.",
+      "description": "Internet advocate. Troublemaker. Problem solver. Falls down a lot. Tea aficionado. Thinker.",
       "owner": "jennakelty@hotmail.com"
     },
     {
@@ -39,14 +39,14 @@
       "firstname": "William",
       "lastname": "Barba",
       "image": "https://www.fakepersongenerator.com/Face/male/male20151086215248169.jpg",
-      "description": "Total analyst. Friendly beer advocate. Amateur communicator. Pop culture enthusiast.",
+      "description": "Total analyst. Friendly tea advocate. Amateur communicator. Pop culture enthusiast.",
       "owner": "williambarba@gmail.com"
     },
     {
       "firstname": "Sarah",
       "lastname": "Knox",
       "image": "https://www.fakepersongenerator.com/Face/female/female1021560243317.jpg",
-      "description": "Social media nerd. Incurable gamer. Beer aficionado. Certified food practitioner. Alcohol ninja.",
+      "description": "Social media nerd. Incurable gamer. Tea aficionado. Certified food practitioner. Tea ninja.",
       "owner": "sarahknox@gmail.com"
     },
     {
@@ -69,6 +69,76 @@
       "image": "https://www.fakepersongenerator.com/Face/male/male20161086703356720.jpg",
       "description": "Extreme pop culture specialist. Travel enthusiast. Internet maven. Avid coffee trailblazer.",
       "owner": "vaughnhill@yahoo.com"
+    },
+    {
+      "firstname": "Chad",
+      "lastname": "Randolph",
+      "image": "https://www.fakepersongenerator.com/Face/male/male20161086620862854.jpg",
+      "description": "Lifelong entrepreneur. Infuriatingly humble zombie lover. Food expert. Gamer. Tv maven. Organizer. Evil troublemaker. Internet advocate. Coffee ninja.",
+      "owner": "chadrandolph@gmail.com"
+    },
+    {
+      "firstname": "Kathleen",
+      "lastname": "Leach",
+      "image": "https://www.fakepersongenerator.com/Face/female/female1022862617706.jpg",
+      "description": "Award-winning tea buff. Food geek. Passionate organizer. Subtly charming entrepreneur.",
+      "owner": "kathleenl@yahoo.com"
+    },
+    {
+      "firstname": "Susan",
+      "lastname": "Barnes",
+      "image": "https://www.fakepersongenerator.com/Face/female/female20161025176455902.jpg",
+      "description": "Coffee expert. Tea ninja. Award-winning reader. Pop culture evangelist. Future teen idol.",
+      "owner": "susanbarnes@yahoo.com"
+    },
+    {
+      "firstname": "Steve",
+      "lastname": "Brown",
+      "image": "https://www.fakepersongenerator.com/Face/male/male1085502415711.jpg",
+      "description": "Twitter fanatic. Music scholar. Incurable tv trailblazer. Tea nerd. Thinker.",
+      "owner": "stevebrown@yahoo.com"
+    },
+    {
+      "firstname": "Frances",
+      "lastname": "Flournoy",
+      "image": "https://www.fakepersongenerator.com/Face/female/female1021492509216.jpg",
+      "description": "Amateur tea nerd. Reader. Hardcore travel aficionado. Passionate introvert.",
+      "owner": "francesf@gmail.com"
+    },
+    {
+      "firstname": "Jay",
+      "lastname": "Smith",
+      "image": "https://www.fakepersongenerator.com/Face/male/male1085643584320.jpg",
+      "description": "Social media specialist. Certified travel trailblazer. Tv junkie. Total bacon maven.",
+      "owner": "jaysmith@gmail.com"
+    },
+    {
+      "firstname": "Steven",
+      "lastname": "O'Connor",
+      "image": "https://www.fakepersongenerator.com/Face/male/male1085612252198.jpg",
+      "description": "Proud problem solver. Social media scholar. Tea aficionado. General communicator. Tea buff. Friendly writer. Future teen idol.",
+      "owner": "stevenoco@gmail.com"
+    },
+    {
+      "firstname": "James",
+      "lastname": "Cloud",
+      "image": "https://www.fakepersongenerator.com/Face/male/male108542879102.jpg",
+      "description": "Friendly tea nerd. Zombie fan. Avid communicator. Hardcore introvert. Social media advocate. Future teen idol.",
+      "owner": "jamescloud@yahoo.com"
+    },
+    {
+      "firstname": "Elise",
+      "lastname": "Sanchez",
+      "image": "https://www.fakepersongenerator.com/Face/female/female20161025802702179.jpg",
+      "description": "Creator. Food maven. General coffee aficionado. Hardcore tea advocate. Total zombie scholar.",
+      "owner": "elisesanch@gmail.com"
+    },
+    {
+      "firstname": "Silvia",
+      "lastname": "Drake",
+      "image": "https://www.fakepersongenerator.com/Face/female/female20161024706788360.jpg",
+      "description": "Freelance explorer. Reader. Award-winning tea-aholic. Entrepreneur. Hardcore creator.",
+      "owner": "silviadr@hotmail.com"
     }
   ],
   "accounts": [
@@ -81,58 +151,16 @@
     { "email": "sarahknox@gmail.com", "password": "test" },
     { "email": "thomashen@yahoo.com", "password": "test" },
     { "email": "solomonhud@hotmail.com", "password": "test" },
-    { "email": "vaughnhill@yahoo.com", "password": "test" }
-  ],
-  "websites": [
-    {
-      "image": "https://www.fakepersongenerator.com/Face/female/female1021883256104.jpg",
-      "title": "USAFacts Tracker",
-      "url": "https://usafacts.org/issues/coronavirus/",
-      "firstname": "Jocelyn",
-      "lastname": "Jones",
-      "date": "11/20/2020",
-      "description": "Dive into the stats and data on all things COVID-19. Explore metrics including daily case counts, government spending to help people and businesses, health risk factors, and the virus's economic impact.",
-      "owner": "jocelynjones@yahoo.com"
-    },
-    {
-      "image": "https://www.fakepersongenerator.com/Face/male/male1085151590546.jpg",
-      "title": "Coronavirus Watch",
-      "url": "https://coronaviruswatch.ircai.org/?country=All&dashboard=news",
-      "firstname": "Michael",
-      "lastname": "Trask",
-      "date": "11/21/2020",
-      "description": "worldwide media, advanced visualizations and more",
-      "owner": "michaeltrask@gmail.com"
-    },
-    {
-      "image": "https://www.fakepersongenerator.com/Face/female/female20161025771450378.jpg",
-      "title": "Johns Hopkins Map",
-      "url": "https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6",
-      "firstname": "Dorothy",
-      "lastname": "Benton",
-      "date": "11/21/2020",
-      "description": "COVID-19 Dashboard by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University (JHU)",
-      "owner": "dorothyben@hotmail.com"
-    },
-    {
-      "image": "https://www.fakepersongenerator.com/Face/female/female20161024869831909.jpg",
-      "title": "COVID Outbreak",
-      "url": "https://en.wikipedia.org/wiki/COVID-19_pandemic",
-      "firstname": "Jenna",
-      "lastname": "Kelty",
-      "date": "11/22/2020",
-      "description": "The COVID-19 pandemic, also known as the coronavirus pandemic, is an ongoing pandemic of coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2), first identified in December 2019 in Wuhan, China.",
-      "owner": "jennakelty@hotmail.com"
-    },
-    {
-      "image": "https://www.fakepersongenerator.com/Face/male/male1084845702179.jpg",
-      "title": "CDC When To Quarantine",
-      "url": "https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/quarantine.html",
-      "firstname": "Thomas",
-      "lastname": "Hendrickson",
-      "date": "11/22/2020",
-      "description": "Quarantine is used to keep someone who might have been exposed to COVID-19 away from others. Quarantine helps prevent spread of disease that can occur before a person knows they are sick or if they are infected with the virus without feeling symptoms.",
-      "owner": "thomashen@yahoo.com"
-    }
+    { "email": "vaughnhill@yahoo.com", "password": "test" },
+    { "email": "chadrandolph@gmail.com", "password": "test" },
+    { "email": "kathleenl@yahoo.com", "password": "test" },
+    { "email": "susanbarnes@yahoo.com", "password": "test" },
+    { "email": "stevebrown@yahoo.com", "password": "test" },
+    { "email": "francesf@gmail.com", "password": "test" },
+    { "email": "jaysmith@gmail.com", "password": "test" },
+    { "email": "stevenoco@gmail.com", "password": "test" },
+    { "email": "jamescloud@yahoo.com", "password": "test" },
+    { "email": "elisesanch@gmail.com", "password": "test" },
+    { "email": "silviadr@hotmail.com", "password": "test" }
   ]
 }
