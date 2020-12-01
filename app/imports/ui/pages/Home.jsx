@@ -4,7 +4,7 @@ import React from 'react';
 class Home extends React.Component {
   render() {
     return (
-        <div>
+        <div id="home-page">
           <div className="home-background"/>
         </div>
     );
