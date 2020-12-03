@@ -74,7 +74,7 @@ class EditWebsite extends React.Component {
   }
 }
 
-/** Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use. */
+/** Require the presence of a Website document in the props object. Uniforms adds 'model' to the props, which we use. */
 EditWebsite.propTypes = {
   location: PropTypes.object,
   doc: PropTypes.object,
@@ -86,7 +86,7 @@ EditWebsite.propTypes = {
 export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
-  // Get access to Stuff documents.
+  // Get access to Website documents.
   const subscription = Meteor.subscribe(Websites.userPublicationName);
   return {
     doc: Websites.collection.findOne(documentId),

@@ -6,7 +6,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Profiles } from '../../api/profile/Profiles';
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/** Renders a page containing one Profile document. */
 class ProfilePage extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -48,7 +48,7 @@ class ProfilePage extends React.Component {
   }
 }
 
-/** Require an array of Stuff documents in the props. */
+/** Require an object of Profile documents in the props. */
 ProfilePage.propTypes = {
   profile: PropTypes.object,
   ready: PropTypes.bool.isRequired,
@@ -57,7 +57,7 @@ ProfilePage.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(({ match }) => {
   const docId = match.params._id;
-  // Get access to Stuff documents.
+  // Get access to Profile documents.
   const subscription = Meteor.subscribe(Profiles.userPublicationName);
   return {
     profile: Profiles.collection.findOne(docId),

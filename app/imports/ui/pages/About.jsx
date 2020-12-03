@@ -2,7 +2,7 @@ import React from 'react';
 import { Header, Grid } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
-class Landing extends React.Component {
+class About extends React.Component {
   render() {
     const usStyle = { marginTop: '15px', marginBottom: '15px' };
 
@@ -32,4 +32,4 @@ class Landing extends React.Component {
   }
 }
 
-export default Landing;
+export default About;

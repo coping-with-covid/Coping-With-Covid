@@ -9,8 +9,8 @@ import { Websites } from '../../api/website/Websites';
 import { Profiles } from '../../api/profile/Profiles';
 import { Comments } from '../../api/comment/Comments';
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListStuff extends React.Component {
+/** Renders a page containing all of the Website documents. Use <Website> to render each row. */
+class WebsitesPage extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -61,8 +61,8 @@ class ListStuff extends React.Component {
   }
 }
 
-/** Require an array of Stuff documents in the props. */
-ListStuff.propTypes = {
+/** Require an array of Website documents in the props. */
+WebsitesPage.propTypes = {
   websites: PropTypes.array.isRequired,
   profiles: PropTypes.array.isRequired,
   comments: PropTypes.array.isRequired,
@@ -71,7 +71,7 @@ ListStuff.propTypes = {
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Stuff documents.
+  // Get access to Website, Profile, Comment documents.
   const subscription = Meteor.subscribe(Websites.userPublicationName);
   const subscription2 = Meteor.subscribe(Profiles.userPublicationName);
   const subscription3 = Meteor.subscribe(Comments.userPublicationName);
@@ -81,4 +81,4 @@ export default withTracker(() => {
     comments: Comments.collection.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
   };
-})(ListStuff);
+})(WebsitesPage);

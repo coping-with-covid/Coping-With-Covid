@@ -78,7 +78,7 @@ class AddWebsite extends React.Component {
   }
 }
 
-/** Require an array of Stuff documents in the props. */
+/** Require an object of Profile documents in the props. */
 AddWebsite.propTypes = {
   location: PropTypes.object,
   profile: PropTypes.object,
@@ -87,7 +87,7 @@ AddWebsite.propTypes = {
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Stuff documents.
+  // Get access to Profile documents.
   const subscription = Meteor.subscribe(Profiles.userPublicationName);
   const username = Meteor.user().username;
   return {
