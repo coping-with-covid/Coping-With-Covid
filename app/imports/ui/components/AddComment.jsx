@@ -10,7 +10,7 @@ import { Comments } from '../../api/comment/Comments';
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
   comment: String,
-  websiteId: String,
+  elementId: String,
   createdAt: Date,
 });
 
@@ -21,13 +21,13 @@ class AddComment extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { comment, websiteId, createdAt } = data;
+    const { comment, elementId, createdAt } = data;
     const profile = this.props.profile;
     const firstname = profile.firstname;
     const lastname = profile.lastname;
     const image = profile.image;
     const profileId = profile._id;
-    Comments.collection.insert({ comment, websiteId, createdAt, firstname, lastname, image, profileId },
+    Comments.collection.insert({ comment, elementId, createdAt, firstname, lastname, image, profileId },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
@@ -49,7 +49,7 @@ class AddComment extends React.Component {
             <TextField label="Add a comment" name='comment'/>
             <SubmitField value='Submit'/>
             <ErrorsField/>
-            <HiddenField name='websiteId' value={this.props.websiteId}/>
+            <HiddenField name='elementId' value={this.props.elementId}/>
             <HiddenField name='createdAt' value={new Date()}/>
           </Segment>
         </AutoForm>
@@ -59,7 +59,7 @@ class AddComment extends React.Component {
 
 AddComment.propTypes = {
   profile: PropTypes.object.isRequired,
-  websiteId: PropTypes.string.isRequired,
+  elementId: PropTypes.string.isRequired,
 };
 
 export default AddComment;

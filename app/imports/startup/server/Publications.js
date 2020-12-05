@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Profiles } from '../../api/profile/Profiles';
+import { Posts } from '../../api/post/Posts';
 import { Websites } from '../../api/website/Websites';
 import { Comments } from '../../api/comment/Comments';
 
@@ -18,6 +19,13 @@ Meteor.publish(Stuffs.userPublicationName, function () {
 Meteor.publish(Profiles.userPublicationName, function () {
   if (this.userId) {
     return Profiles.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Posts.userPublicationName, function () {
+  if (this.userId) {
+    return Posts.collection.find();
   }
   return this.ready();
 });

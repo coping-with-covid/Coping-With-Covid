@@ -7,26 +7,26 @@ import Comment from './Comment';
 import AddComment from './AddComment';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class Website extends React.Component {
+class Forum extends React.Component {
   render() {
-    const website = this.props.website;
+    const post = this.props.post;
     return (
         <Card centered>
           <Card.Content>
             <Image
-                floated='right'
-                size='mini'
-                src={website.image}
+                floated='left'
+                size='tiny'
+                src={post.image}
             />
-            <Card.Header><a href={website.url} rel="noreferrer" target="_blank">{website.title}</a></Card.Header>
-            <Card.Meta>Posted by <Link to={`/profile/${this.props.profile._id}`}>{website.firstname} {website.lastname}</Link></Card.Meta>
-            <Card.Meta>{website.date.toLocaleDateString('en-US')}</Card.Meta>
+            <Card.Header>{post.title}</Card.Header>
+            <Card.Meta>Posted by <Link to={`/profile/${this.props.profile._id}`}>{post.firstname} {post.lastname}</Link></Card.Meta>
+            <Card.Meta>{post.date.toLocaleDateString('en-US')}</Card.Meta>
             <Card.Description>
-              {website.description}
+              {post.description}
             </Card.Description>
           </Card.Content>
-          {Meteor.user().username === website.owner && <Card.Content extra>
-            <Link to={`/editsite/${this.props.website._id}`}>Edit</Link>
+          {Meteor.user().username === post.owner && <Card.Content extra>
+            <Link to={`/editpost/${this.props.post._id}`}>Edit</Link>
           </Card.Content>}
           <Card.Content extra>
             <Feed>
@@ -34,19 +34,19 @@ class Website extends React.Component {
             </Feed>
           </Card.Content>
           <Card.Content extra>
-            <AddComment profile={this.props.currentUser} elementId={this.props.website._id}/>
+            <AddComment profile={this.props.currentUser} elementId={this.props.post._id}/>
           </Card.Content>
         </Card>
     );
   }
 }
 /** Require a document to be passed to this component. */
-Website.propTypes = {
-  website: PropTypes.object.isRequired,
+Forum.propTypes = {
+  post: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
   comments: PropTypes.array.isRequired,
   currentUser: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(Website);
+export default withRouter(Forum);
