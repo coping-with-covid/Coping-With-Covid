@@ -17,6 +17,9 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import ProfilePage from '../pages/ProfilePage';
 import EditProfile from '../pages/EditProfile';
+import ForumPage from '../pages/ForumPage';
+import AddPost from '../pages/AddPost';
+import EditPost from '../pages/EditPost';
 import WebsitesPage from '../pages/WebsitesPage';
 import AddWebsite from '../pages/AddWebsite';
 import EditWebsite from '../pages/EditWebsite';
@@ -36,6 +39,9 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/profile/:_id" component={ProfilePage}/>
               <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
+              <ProtectedRoute path="/forum" component={ForumPage}/>
+              <ProtectedRoute path="/addpost" component={AddPost}/>
+              <ProtectedRoute path="/editpost/:_id" component={EditPost}/>
               <ProtectedRoute path="/websites" component={WebsitesPage}/>
               <ProtectedRoute path="/home" component={Home}/>
               <ProtectedRoute path="/about" component={About}/>

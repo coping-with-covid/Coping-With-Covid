@@ -1,16 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Loader, Image, Button, Menu, Dropdown, Card } from 'semantic-ui-react';
+import { Container, Loader, Image, Button, Menu, Dropdown, Card, Header } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import Website from '../components/Website';
-import { Websites } from '../../api/website/Websites';
+import Forum from '../components/Forum';
+import { Posts } from '../../api/post/Posts';
 import { Profiles } from '../../api/profile/Profiles';
 import { Comments } from '../../api/comment/Comments';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListStuff extends React.Component {
+class ForumPage extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -19,6 +19,7 @@ class ListStuff extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const questionStyle = { marginTop: '15px', marginBottom: '15px' };
     const sortOptions = [
       {
         key: 'Recent',
@@ -32,8 +33,8 @@ class ListStuff extends React.Component {
       },
     ];
     return (
-        <Container id="websites-page">
-          <Image fluid centered src="images/websites-background.jpg"/>
+        <Container id="forum-page">
+          <Image fluid centered src="images/forum-background.png"/>
           <Menu borderless className="website-menu">
             <Menu.Item>
               Sort by: {' '}
@@ -44,15 +45,18 @@ class ListStuff extends React.Component {
               />
             </Menu.Item>
             <Menu.Item position="right">
-              <Button as={NavLink} exact to={'/addsite'} className="website-button">Create New Post</Button>
+              <Button as={NavLink} exact to={'/addpost'} className="website-button">Create New Post</Button>
             </Menu.Item>
           </Menu>
-          <Card.Group>
-            {this.props.websites.map((website, index) => <Website
+          <div style={questionStyle} className="ui center aligned container">
+            <Header size="huge">Question of the Day: What is the most beautiful place you have ever visited?</Header>
+          </div>
+          <Card.Group itemsPerRow={3}>
+            {this.props.posts.map((post, index) => <Forum
                 key={index}
-                website={website}
-                profile={this.props.profiles.find(profile => (profile.owner === website.owner))}
-                comments={this.props.comments.filter(comment => (comment.elementId === website._id))}
+                post={post}
+                profile={this.props.profiles.find(profile => (profile.owner === post.owner))}
+                comments={this.props.comments.filter(comment => (comment.elementId === post._id))}
                 currentUser={this.props.profiles.find(profile => (profile.owner) === Meteor.user().username)}
             />)}
           </Card.Group>
@@ -62,8 +66,8 @@ class ListStuff extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-ListStuff.propTypes = {
-  websites: PropTypes.array.isRequired,
+ForumPage.propTypes = {
+  posts: PropTypes.array.isRequired,
   profiles: PropTypes.array.isRequired,
   comments: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
@@ -72,13 +76,13 @@ ListStuff.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Websites.userPublicationName);
+  const subscription = Meteor.subscribe(Posts.userPublicationName);
   const subscription2 = Meteor.subscribe(Profiles.userPublicationName);
   const subscription3 = Meteor.subscribe(Comments.userPublicationName);
   return {
-    websites: Websites.collection.find({}).fetch(),
+    posts: Posts.collection.find({}).fetch(),
     profiles: Profiles.collection.find({}).fetch(),
     comments: Comments.collection.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
   };
-})(ListStuff);
+})(ForumPage);
