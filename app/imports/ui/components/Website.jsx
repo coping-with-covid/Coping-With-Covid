@@ -13,13 +13,15 @@ class Website extends React.Component {
     return (
         <Card centered>
           <Card.Content>
+            {this.props.location.pathname !== `/profile/${this.props.profile._id}` &&
             <Image
-                floated='right'
-                size='mini'
+                floated='left'
+                size='tiny'
                 src={website.image}
-            />
+            />}
             <Card.Header><a href={website.url} rel="noreferrer" target="_blank">{website.title}</a></Card.Header>
-            <Card.Meta>Posted by <Link to={`/profile/${this.props.profile._id}`}>{website.firstname} {website.lastname}</Link></Card.Meta>
+            {this.props.location.pathname !== `/profile/${this.props.profile._id}` &&
+            <Card.Meta>Posted by <Link to={`/profile/${this.props.profile._id}`}>{website.firstname} {website.lastname}</Link></Card.Meta>}
             <Card.Meta>{website.date.toLocaleDateString('en-US')}</Card.Meta>
             <Card.Description>
               {website.description}
@@ -28,24 +30,26 @@ class Website extends React.Component {
           {Meteor.user().username === website.owner && <Card.Content extra>
             <Link to={`/editsite/${this.props.website._id}`}>Edit</Link>
           </Card.Content>}
-          <Card.Content extra>
+          {this.props.location.pathname !== `/profile/${this.props.profile._id}` && <Card.Content extra>
             <Feed>
               {this.props.comments.map((comment, index) => <Comment key={index} comment={comment}/>)}
             </Feed>
-          </Card.Content>
-          <Card.Content extra>
+          </Card.Content>}
+          {this.props.location.pathname !== `/profile/${this.props.profile._id}` && <Card.Content extra>
             <AddComment profile={this.props.currentUser} elementId={this.props.website._id}/>
-          </Card.Content>
+          </Card.Content>}
         </Card>
     );
   }
 }
+
 /** Require a document to be passed to this component. */
 Website.propTypes = {
+  location: PropTypes.object,
   website: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
-  comments: PropTypes.array.isRequired,
-  currentUser: PropTypes.object.isRequired,
+  comments: PropTypes.array,
+  currentUser: PropTypes.object,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

@@ -1,10 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Loader, Header, Image, Button, Grid, Input } from 'semantic-ui-react';
+import { Container, Loader, Header, Image, Button, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Profiles } from '../../api/profile/Profiles';
+import { Websites } from '../../api/website/Websites';
+import { Posts } from '../../api/post/Posts';
+import Website from '../components/Website';
+import Forum from '../components/Forum';
 
 /** Renders a page containing one Profile document. */
 class ProfilePage extends React.Component {
@@ -31,18 +35,24 @@ class ProfilePage extends React.Component {
             <p>{profile.description}</p>
             {currentUser === profile.owner && <Button as={NavLink} exact to={`/editprofile/${profile._id}`} color="grey">Update Info</Button>}
           </Container>
-          <Grid columns={3} stackable>
-            <Grid.Row>
-              <Grid.Column verticalAlign="bottom">
-                <Header size="medium">All Posts</Header>
-              </Grid.Column>
-              <Grid.Column>
-              </Grid.Column>
-              <Grid.Column textAlign="right">
-                <Input icon="search" placeholder="Search posts..."/>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
+          <Header size="medium">Forum Posts</Header>
+          <Card.Group itemsPerRow={1}>
+            {this.props.posts.map((post, index) => <Forum
+                key={index}
+                post={post}
+                profile={this.props.profile}
+                currentUser={this.props.profile}
+            />)}
+          </Card.Group>
+          <Header size="medium">Website Posts</Header>
+          <Card.Group itemsPerRow={1}>
+            {this.props.websites.map((website, index) => <Website
+                key={index}
+                website={website}
+                profile={this.props.profile}
+                currentUser={this.props.profile}
+            />)}
+          </Card.Group>
         </Container>
     );
   }
@@ -51,6 +61,8 @@ class ProfilePage extends React.Component {
 /** Require an object of Profile documents in the props. */
 ProfilePage.propTypes = {
   profile: PropTypes.object,
+  websites: PropTypes.array,
+  posts: PropTypes.array,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -59,8 +71,13 @@ export default withTracker(({ match }) => {
   const docId = match.params._id;
   // Get access to Profile documents.
   const subscription = Meteor.subscribe(Profiles.userPublicationName);
+  const subscription2 = Meteor.subscribe(Websites.userPublicationName);
+  const subscription3 = Meteor.subscribe(Posts.userPublicationName);
+  const profile = Profiles.collection.findOne(docId);
   return {
-    profile: Profiles.collection.findOne(docId),
-    ready: subscription.ready(),
+    profile: profile,
+    websites: Websites.collection.find({ owner: profile.owner }).fetch(),
+    posts: Posts.collection.find({ owner: profile.owner }).fetch(),
+    ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
   };
 })(ProfilePage);

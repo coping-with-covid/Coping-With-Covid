@@ -13,13 +13,15 @@ class Forum extends React.Component {
     return (
         <Card centered>
           <Card.Content>
+            {this.props.location.pathname !== `/profile/${this.props.profile._id}` &&
             <Image
                 floated='left'
                 size='tiny'
                 src={post.image}
-            />
+            />}
             <Card.Header>{post.title}</Card.Header>
-            <Card.Meta>Posted by <Link to={`/profile/${this.props.profile._id}`}>{post.firstname} {post.lastname}</Link></Card.Meta>
+            {this.props.location.pathname !== `/profile/${this.props.profile._id}` &&
+            <Card.Meta>Posted by <Link to={`/profile/${this.props.profile._id}`}>{post.firstname} {post.lastname}</Link></Card.Meta>}
             <Card.Meta>{post.date.toLocaleDateString('en-US')}</Card.Meta>
             <Card.Description>
               {post.description}
@@ -28,24 +30,25 @@ class Forum extends React.Component {
           {Meteor.user().username === post.owner && <Card.Content extra>
             <Link to={`/editpost/${this.props.post._id}`}>Edit</Link>
           </Card.Content>}
-          <Card.Content extra>
+          {this.props.location.pathname !== `/profile/${this.props.profile._id}` && <Card.Content extra>
             <Feed>
               {this.props.comments.map((comment, index) => <Comment key={index} comment={comment}/>)}
             </Feed>
-          </Card.Content>
-          <Card.Content extra>
+          </Card.Content>}
+          {this.props.location.pathname !== `/profile/${this.props.profile._id}` && <Card.Content extra>
             <AddComment profile={this.props.currentUser} elementId={this.props.post._id}/>
-          </Card.Content>
+          </Card.Content>}
         </Card>
     );
   }
 }
 /** Require a document to be passed to this component. */
 Forum.propTypes = {
+  location: PropTypes.object,
   post: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
-  comments: PropTypes.array.isRequired,
-  currentUser: PropTypes.object.isRequired,
+  comments: PropTypes.array,
+  currentUser: PropTypes.object,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
