@@ -127,6 +127,8 @@
 .ui.button.website-button {
   background-color: #d0e0e3ff;
   color: #45818e;
+  margin-left: auto !important;
+  margin-right: 0 !important;
 }
 
 .ui.menu.website-menu {

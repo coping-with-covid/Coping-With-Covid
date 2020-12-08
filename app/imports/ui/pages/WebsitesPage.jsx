@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Loader, Image, Button, Menu, Dropdown, Card } from 'semantic-ui-react';
+import { Container, Loader, Image, Button, Menu, Card, Input } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Website from '../components/Website';
@@ -12,49 +12,50 @@ import { Comments } from '../../api/comment/Comments';
 /** Renders a page containing all of the Website documents. Use <Website> to render each row. */
 class WebsitesPage extends React.Component {
 
+  state = {
+    search: '',
+  }
+
+  onchange = e => {
+    this.setState({ search: e.target.value });
+  }
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
+  renderSites(website, index) {
+    return (
+        <Website
+            key={index}
+            website={website}
+            profile={this.props.profiles.find(profile => (profile.owner === website.owner))}
+            comments={this.props.comments.filter(comment => (comment.elementId === website._id))}
+            currentUser={this.props.profiles.find(profile => (profile.owner) === Meteor.user().username)}
+        />
+    );
+  }
+
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const sortOptions = [
-      {
-        key: 'Recent',
-        text: 'Recent',
-        value: 'Recent',
-      },
-      {
-        key: 'Rating',
-        text: 'Rating',
-        value: 'Rating',
-      },
-    ];
+    const { search } = this.state;
+    const filteredSites = this.props.websites.filter(site => (site.description.toLowerCase().indexOf(search.toLowerCase()) !== -1 || site.title.toLowerCase().indexOf(search.toLowerCase()) !== -1));
     return (
         <Container id="websites-page">
           <Image fluid centered src="images/websites-background.jpg"/>
-          <Menu borderless className="website-menu">
+          <Menu borderless className="website-menu" widths={3}>
             <Menu.Item>
-              Sort by: {' '}
-              <Dropdown
-                  inline
-                  options={sortOptions}
-                  defaultValue={sortOptions[0].value}
-              />
             </Menu.Item>
-            <Menu.Item position="right">
+            <Menu.Item>
+              <Input icon="search" placeholder="Search posts by keywords..." onChange={this.onchange}/>
+            </Menu.Item>
+            <Menu.Item>
               <Button as={NavLink} exact to={'/addsite'} className="website-button">Create New Post</Button>
             </Menu.Item>
           </Menu>
-          <Card.Group>
-            {this.props.websites.map((website, index) => <Website
-                key={index}
-                website={website}
-                profile={this.props.profiles.find(profile => (profile.owner === website.owner))}
-                comments={this.props.comments.filter(comment => (comment.elementId === website._id))}
-                currentUser={this.props.profiles.find(profile => (profile.owner) === Meteor.user().username)}
-            />)}
+          <Card.Group itemsPerRow={3}>
+            {filteredSites.map((website, index) => this.renderSites(website, index))}
           </Card.Group>
         </Container>
     );
