@@ -1,6 +1,34 @@
 {
   "profiles": [
     {
+      "firstname": "Chris",
+      "lastname": "Dang",
+      "image": "https://avatars0.githubusercontent.com/u/58054941?s=400&u=d2f81f0c56561a450111ab85399a0f060899053d&v=4",
+      "description": "Administrator",
+      "owner": "cdang808@hawaii.edu"
+    },
+    {
+      "firstname": "Chak Hon",
+      "lastname": "Lam",
+      "image": "https://avatars3.githubusercontent.com/u/56109593?s=400&u=dc1130850d72774ebb492a570c80cb70fbcf7218&v=4",
+      "description": "Administrator",
+      "owner": "chakhon@hawaii.edu"
+    },
+    {
+      "firstname": "Guanhong",
+      "lastname": "Li",
+      "image": "https://avatars1.githubusercontent.com/u/70239412?s=460&u=74b5a318604ca7d948d5553263084c786b55df79&v=4",
+      "description": "Administrator",
+      "owner": "guanhong@hawaii.edu"
+    },
+    {
+      "firstname": "Li",
+      "lastname": "Liang",
+      "image": "https://avatars1.githubusercontent.com/u/70745380?s=400&u=cf0e43508ec9fab62824e111a655e52daaf0a323&v=4",
+      "description": "Administrator",
+      "owner": "liangli@hawaii.edu"
+    },
+    {
       "firstname": "Jocelyn",
       "lastname": "Jones",
       "image": "https://www.fakepersongenerator.com/Face/female/female1021883256104.jpg",
@@ -142,6 +170,10 @@
     }
   ],
   "accounts": [
+    { "email": "cdang808@hawaii.edu", "password": "admin", "role": "admin" },
+    { "email": "chakhon@hawaii.edu", "password": "admin", "role": "admin" },
+    { "email": "guanhong@hawaii.edu", "password": "admin", "role": "admin" },
+    { "email": "liangli@hawaii.edu", "password": "admin", "role": "admin" },
     { "email": "jocelynjones@yahoo.com", "password": "test" },
     { "email": "michaeltrask@gmail.com", "password": "test" },
     { "email": "dorothyben@hotmail.com", "password": "test" },
