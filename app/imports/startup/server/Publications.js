@@ -5,6 +5,7 @@ import { Profiles } from '../../api/profile/Profiles';
 import { Posts } from '../../api/post/Posts';
 import { Websites } from '../../api/website/Websites';
 import { Comments } from '../../api/comment/Comments';
+import { Topics } from '../../api/topic/Topic';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -19,6 +20,13 @@ Meteor.publish(Stuffs.userPublicationName, function () {
 Meteor.publish(Profiles.userPublicationName, function () {
   if (this.userId) {
     return Profiles.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Topics.userPublicationName, function () {
+  if (this.userId) {
+    return Topics.collection.find();
   }
   return this.ready();
 });

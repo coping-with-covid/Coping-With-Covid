@@ -1,13 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Loader, Image, Button, Menu, Dropdown, Card, Header } from 'semantic-ui-react';
+import { Container, Loader, Image, Button, Menu, Dropdown, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Forum from '../components/Forum';
+import Topic from '../components/Topic';
 import { Posts } from '../../api/post/Posts';
 import { Profiles } from '../../api/profile/Profiles';
 import { Comments } from '../../api/comment/Comments';
+import { Topics } from '../../api/topic/Topic';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ForumPage extends React.Component {
@@ -19,7 +21,6 @@ class ForumPage extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const questionStyle = { marginTop: '15px', marginBottom: '15px' };
     const sortOptions = [
       {
         key: 'Recent',
@@ -48,9 +49,7 @@ class ForumPage extends React.Component {
               <Button as={NavLink} exact to={'/addpost'} className="website-button">Create New Post</Button>
             </Menu.Item>
           </Menu>
-          <div style={questionStyle} className="ui center aligned container">
-            <Header size="huge">Question of the Day: What is the most beautiful place you have ever visited?</Header>
-          </div>
+          <Topic topic={this.props.topics[0]}/>
           <Card.Group itemsPerRow={3}>
             {this.props.posts.map((post, index) => <Forum
                 key={index}
@@ -70,6 +69,7 @@ ForumPage.propTypes = {
   posts: PropTypes.array.isRequired,
   profiles: PropTypes.array.isRequired,
   comments: PropTypes.array.isRequired,
+  topics: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -79,10 +79,12 @@ export default withTracker(() => {
   const subscription = Meteor.subscribe(Posts.userPublicationName);
   const subscription2 = Meteor.subscribe(Profiles.userPublicationName);
   const subscription3 = Meteor.subscribe(Comments.userPublicationName);
+  const subscription4 = Meteor.subscribe(Topics.userPublicationName);
   return {
     posts: Posts.collection.find({}).fetch(),
     profiles: Profiles.collection.find({}).fetch(),
     comments: Comments.collection.find({}).fetch(),
-    ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
+    topics: Topics.collection.find({}).fetch(),
+    ready: subscription.ready() && subscription2.ready() && subscription3.ready() && subscription4.ready(),
   };
 })(ForumPage);

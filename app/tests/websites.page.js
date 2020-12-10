@@ -12,7 +12,7 @@ class WebsitesPage {
 
   async hasCards(testController) {
     const cardCount = Selector('.ui.centered.card').count;
-    await testController.expect(cardCount).gte(5);
+    await testController.expect(cardCount).gte(12);
   }
 }
 

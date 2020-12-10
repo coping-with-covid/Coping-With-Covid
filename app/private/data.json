@@ -195,6 +195,11 @@
     { "email": "elisesanch@gmail.com", "password": "test" },
     { "email": "silviadr@hotmail.com", "password": "test" }
   ],
+  "topics": [
+    {
+      "topic": "What is the most beautiful place you have ever visited?"
+    }
+  ],
   "websites": [
     {
       "image": "https://www.fakepersongenerator.com/Face/female/female1021883256104.jpg",

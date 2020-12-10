@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../api/profile/Profiles';
+import { Topics } from '../../api/topic/Topic';
 import { Posts } from '../../api/post/Posts';
 import { Websites } from '../../api/website/Websites';
 
@@ -15,6 +16,11 @@ function addData(data) {
 function addProfiles(profile) {
   console.log(`  Adding: ${profile.firstname} (${profile.owner})`);
   Profiles.collection.insert(profile);
+}
+
+function addTopics(topic) {
+  console.log(`  Adding: ${topic.topic}`);
+  Topics.collection.insert(topic);
 }
 
 function addPosts(post) {
@@ -55,6 +61,13 @@ if ((Meteor.settings.loadAssetsFile) && (Profiles.collection.find().count() < 4)
   console.log(`Loading data from private/${assetsFileName}`);
   const jsonData = JSON.parse(Assets.getText(assetsFileName));
   jsonData.profiles.map(profile => addProfiles(profile));
+}
+
+if ((Meteor.settings.loadAssetsFile) && (Topics.collection.find().count() === 0)) {
+  const assetsFileName = 'data.json';
+  console.log(`Loading data from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+  jsonData.topics.map(topic => addTopics(topic));
 }
 
 if ((Meteor.settings.loadAssetsFile) && (Websites.collection.find().count() === 0)) {
