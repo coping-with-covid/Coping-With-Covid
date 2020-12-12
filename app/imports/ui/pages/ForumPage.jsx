@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Loader, Image, Button, Menu, Dropdown, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { Roles } from 'meteor/alanning:roles';
 import Forum from '../components/Forum';
 import Topic from '../components/Topic';
 import { Posts } from '../../api/post/Posts';
@@ -47,6 +48,9 @@ class ForumPage extends React.Component {
             </Menu.Item>
             <Menu.Item position="right">
               <Button as={NavLink} exact to={'/addpost'} className="website-button">Create New Post</Button>
+              {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                  <Button as={NavLink} exact to={`/edittopic/${this.props.topics[0]._id}`} className="website-button">Edit Topic</Button>
+              ) : ''}
             </Menu.Item>
           </Menu>
           <Topic topic={this.props.topics[0]}/>

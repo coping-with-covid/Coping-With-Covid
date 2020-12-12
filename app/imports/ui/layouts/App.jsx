@@ -23,6 +23,7 @@ import EditPost from '../pages/EditPost';
 import WebsitesPage from '../pages/WebsitesPage';
 import AddWebsite from '../pages/AddWebsite';
 import EditWebsite from '../pages/EditWebsite';
+import EditTopic from '../pages/EditTopic';
 import Home from '../pages/Home';
 import About from '../pages/About';
 
@@ -51,6 +52,7 @@ class App extends React.Component {
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+              <AdminProtectedRoute path="/edittopic/:_id" component={EditTopic}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>
