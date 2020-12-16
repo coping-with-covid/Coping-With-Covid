@@ -15,25 +15,52 @@ import { Topics } from '../../api/topic/Topic';
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ForumPage extends React.Component {
 
+  state = {
+    sortType: 'latest',
+  }
+
+  onSort = sortType => {
+    this.setState({ sortType });
+  }
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+
+  renderPosts(post, index) {
+    return (
+        <Forum
+            key={index}
+            post={post}
+            profile={this.props.profiles.find(profile => (profile.owner === post.owner))}
+            comments={this.props.comments.filter(comment => (comment.elementId === post._id))}
+            currentUser={this.props.profiles.find(profile => (profile.owner) === Meteor.user().username)}
+        />
+    );
   }
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const sortOptions = [
       {
-        key: 'Recent',
-        text: 'Recent',
-        value: 'Recent',
+        key: 'Latest',
+        text: 'Latest',
+        value: 'Latest',
       },
       {
-        key: 'Rating',
-        text: 'Rating',
-        value: 'Rating',
+        key: 'Oldest',
+        text: 'Oldest',
+        value: 'Oldest',
       },
     ];
+
+    const { sortType } = this.state;
+
+    const sortedPosts = this.props.posts.sort((a, b) => {
+      const isRev = (sortType === 'latest') ? -1 : 1;
+      return isRev * (a.date.toLocaleDateString('en-US').localeCompare(b.date.toLocaleDateString('en-US')));
+    });
     return (
         <Container id="forum-page">
           <Image fluid centered src="images/forum-background.png"/>
@@ -44,6 +71,7 @@ class ForumPage extends React.Component {
                   inline
                   options={sortOptions}
                   defaultValue={sortOptions[0].value}
+                  onChange={() => this.onSort((sortType === 'latest') ? 'oldest' : 'latest')}
               />
             </Menu.Item>
             <Menu.Item position="right">
@@ -55,13 +83,7 @@ class ForumPage extends React.Component {
           </Menu>
           <Topic topic={this.props.topics[0]}/>
           <Card.Group itemsPerRow={3}>
-            {this.props.posts.map((post, index) => <Forum
-                key={index}
-                post={post}
-                profile={this.props.profiles.find(profile => (profile.owner === post.owner))}
-                comments={this.props.comments.filter(comment => (comment.elementId === post._id))}
-                currentUser={this.props.profiles.find(profile => (profile.owner) === Meteor.user().username)}
-            />)}
+            {sortedPosts.map((post, index) => this.renderPosts(post, index))}
           </Card.Group>
         </Container>
     );
