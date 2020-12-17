@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../api/profile/Profiles';
 import { Topics } from '../../api/topic/Topic';
 import { Posts } from '../../api/post/Posts';
@@ -8,10 +7,6 @@ import { Websites } from '../../api/website/Websites';
 /* eslint-disable no-console */
 
 /** Initialize the database with a default data document. */
-function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
-  Stuffs.collection.insert(data);
-}
 
 function addProfiles(profile) {
   console.log(`  Adding: ${profile.firstname} (${profile.owner})`);
@@ -34,13 +29,6 @@ function addWebsite(website) {
 }
 
 /** Initialize the collection if empty. */
-if (Stuffs.collection.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultData.map(data => addData(data));
-  }
-}
-
 if (Profiles.collection.find().count() === 0) {
   if (Meteor.settings.defaultProfiles) {
     console.log('Creating default profiles.');
