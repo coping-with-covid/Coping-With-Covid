@@ -7,7 +7,7 @@ class About extends React.Component {
     const usStyle = { marginTop: '15px', marginBottom: '15px' };
 
     return (
-          <Grid style={usStyle} container centered stackable columns={3}>
+          <Grid id="about-page" style={usStyle} container centered stackable columns={3}>
             <Grid.Column>
               <Header className="ui medium header us" textAlign="center">Learn about us</Header>
               <p className="intro">

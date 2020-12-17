@@ -44,16 +44,16 @@ class EditProfile extends React.Component {
       return <Redirect to={from}/>;
     }
     return (
-        <Grid container centered>
+        <Grid id='edit-profile-page' container centered>
           <Grid.Column>
             <Header className="ui large header sign" textAlign="center">Edit Profile</Header>
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <Segment>
-                <TextField name='firstname'/>
+                <TextField id='firstName' name='firstname'/>
                 <TextField name='lastname'/>
                 <TextField name='image'/>
                 <LongTextField name='description'/>
-                <SubmitField value='Submit'/>
+                <SubmitField id='profile-page-submit' value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner'/>
               </Segment>

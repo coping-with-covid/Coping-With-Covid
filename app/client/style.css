@@ -146,3 +146,10 @@
 .delete {
   float: right;
 }
+
+.ui.button.forum-button {
+  background-color: #6b714c;
+  color: white;
+  margin-left: auto !important;
+  margin-right: 10px !important;
+}

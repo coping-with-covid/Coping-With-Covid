@@ -13,8 +13,10 @@ class SignupPage {
   }
 
   /** Signs up a new user, then checks to see that they are logged in by checking the navbar. */
-  async signupUser(testController, username, password) {
+  async signupUser(testController, firstname, lastname, username, password) {
     await this.isDisplayed(testController);
+    await testController.typeText('#signup-form-firstname', firstname);
+    await testController.typeText('#signup-form-lastname', lastname);
     await testController.typeText('#signup-form-email', username);
     await testController.typeText('#signup-form-password', password);
     await testController.click('#signup-form-submit');
