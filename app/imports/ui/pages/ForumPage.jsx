@@ -75,9 +75,9 @@ class ForumPage extends React.Component {
               />
             </Menu.Item>
             <Menu.Item position="right">
-              <Button as={NavLink} exact to={'/addpost'} className="website-button">Create New Post</Button>
+              <Button id='forum-create' as={NavLink} exact to={'/addpost'} className="forum-button">Create New Post</Button>
               {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-                  <Button as={NavLink} exact to={`/edittopic/${this.props.topics[0]._id}`} className="website-button">Edit Topic</Button>
+                  <Button as={NavLink} exact to={`/edittopic/${this.props.topics[0]._id}`} className="forum-button">Edit Topic</Button>
               ) : ''}
             </Menu.Item>
           </Menu>

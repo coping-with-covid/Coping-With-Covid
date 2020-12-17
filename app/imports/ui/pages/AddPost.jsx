@@ -59,14 +59,14 @@ class AddPost extends React.Component {
       return <Redirect to={from}/>;
     }
     return (
-        <Grid container centered>
+        <Grid id='add-post-page' container centered>
           <Grid.Column>
             <Header className="ui large header sign" textAlign="center">Add Post</Header>
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)}>
               <Segment>
-                <TextField name='title'/>
-                <LongTextField name='description'/>
-                <SubmitField value='Submit'/>
+                <TextField id='post-title' name='title'/>
+                <LongTextField id='post-description' name='description'/>
+                <SubmitField id='post-submit' value='Submit'/>
                 <ErrorsField/>
               </Segment>
             </AutoForm>

@@ -60,15 +60,15 @@ class AddWebsite extends React.Component {
       return <Redirect to={from}/>;
     }
     return (
-        <Grid container centered>
+        <Grid id="add-website-page" container centered>
           <Grid.Column>
             <Header className="ui large header sign" textAlign="center">Add Website</Header>
             <AutoForm schema={bridge} onSubmit={data => this.submit(data)}>
               <Segment>
-                <TextField name='title'/>
-                <TextField name='url'/>
-                <LongTextField name='description'/>
-                <SubmitField value='Submit'/>
+                <TextField id='website-title' name='title'/>
+                <TextField id='website-url' name='url'/>
+                <LongTextField id='website-description' name='description'/>
+                <SubmitField id='website-submit' value='Submit'/>
                 <ErrorsField/>
               </Segment>
             </AutoForm>

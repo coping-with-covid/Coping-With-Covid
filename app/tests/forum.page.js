@@ -1,9 +1,8 @@
 import { Selector } from 'testcafe';
-import { navBar } from './navbar.component';
 
-class WebsitesPage {
+class ForumPage {
   constructor() {
-    this.pageId = '#websites-page';
+    this.pageId = '#forum-page';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -17,8 +16,8 @@ class WebsitesPage {
   }
 
   async create(testController) {
-    await testController.click('#website-create');
+    await testController.click('#forum-create');
   }
 }
 
-export const websitesPage = new WebsitesPage();
+export const forumPage = new ForumPage();

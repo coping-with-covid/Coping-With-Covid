@@ -51,7 +51,7 @@ class WebsitesPage extends React.Component {
               <Input icon="search" placeholder="Search posts by keywords..." onChange={this.onchange}/>
             </Menu.Item>
             <Menu.Item>
-              <Button as={NavLink} exact to={'/addsite'} className="website-button">Create New Post</Button>
+              <Button id='website-create' as={NavLink} exact to={'/addsite'} className="website-button">Create New Post</Button>
             </Menu.Item>
           </Menu>
           <Card.Group itemsPerRow={3}>
