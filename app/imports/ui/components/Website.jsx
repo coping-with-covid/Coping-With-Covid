@@ -3,6 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { Card, Image, Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
+import { Websites } from '../../api/website/Websites';
 import Comment from './Comment';
 import AddComment from './AddComment';
 
@@ -27,9 +29,16 @@ class Website extends React.Component {
               {website.description}
             </Card.Description>
           </Card.Content>
-          {Meteor.user().username === website.owner && <Card.Content extra>
-            <Link to={`/editsite/${this.props.website._id}`}>Edit</Link>
-          </Card.Content>}
+          <Card.Content extra>
+            {Meteor.user().username === website.owner &&
+            <Link to={`/editpost/${this.props.website._id}`}>Edit</Link>
+            }
+            {(Meteor.user().username === website.owner || Roles.userIsInRole(Meteor.userId(), 'admin')) ? (
+                <a className={'delete'} onClick={() => {
+                  Websites.collection.remove(this.props.website._id);
+                }} >Delete</a>
+            ) : ''}
+          </Card.Content>
           {this.props.location.pathname !== `/profile/${this.props.profile._id}` && <Card.Content extra>
             <Feed>
               {this.props.comments.map((comment, index) => <Comment key={index} comment={comment}/>)}
