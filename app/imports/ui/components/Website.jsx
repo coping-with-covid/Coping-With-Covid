@@ -1,13 +1,20 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Image, Feed } from 'semantic-ui-react';
+import { Card, Image, Feed, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
 import Comment from './Comment';
 import AddComment from './AddComment';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Website extends React.Component {
+
+  removeWebsite(ID) {
+    console.log(`${ID}`);
+    this.props.website.collection.remove(ID);
+  }
+
   render() {
     const website = this.props.website;
     return (
@@ -38,6 +45,11 @@ class Website extends React.Component {
           {this.props.location.pathname !== `/profile/${this.props.profile._id}` && <Card.Content extra>
             <AddComment profile={this.props.currentUser} elementId={this.props.website._id}/>
           </Card.Content>}
+          <Card.Content extra>
+            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                <Button icon onClick={() => this.removeWebsite(this.props.website._id)}><Icon name='trash'/></Button>
+            ) : ''}
+          </Card.Content>
         </Card>
     );
   }
