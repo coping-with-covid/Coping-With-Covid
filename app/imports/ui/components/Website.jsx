@@ -4,6 +4,7 @@ import { Card, Image, Feed, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
+import swal from 'sweetalert';
 import Comment from './Comment';
 import AddComment from './AddComment';
 
@@ -12,7 +13,8 @@ class Website extends React.Component {
 
   removeWebsite(ID) {
     console.log(`${ID}`);
-    this.props.website.collection.remove(ID);
+    this.props.websites.collection.remove(ID);
+    swal('Success', 'Post have been deleted', 'success');
   }
 
   render() {
@@ -62,6 +64,7 @@ Website.propTypes = {
   profile: PropTypes.object.isRequired,
   comments: PropTypes.array,
   currentUser: PropTypes.object,
+  websites: PropTypes.object,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

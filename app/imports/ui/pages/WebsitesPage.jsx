@@ -30,6 +30,7 @@ class WebsitesPage extends React.Component {
         <Website
             key={index}
             website={website}
+            websites={Websites}
             profile={this.props.profiles.find(profile => (profile.owner === website.owner))}
             comments={this.props.comments.filter(comment => (comment.elementId === website._id))}
             currentUser={this.props.profiles.find(profile => (profile.owner) === Meteor.user().username)}

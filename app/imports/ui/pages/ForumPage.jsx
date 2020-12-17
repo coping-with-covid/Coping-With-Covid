@@ -33,6 +33,7 @@ class ForumPage extends React.Component {
         <Forum
             key={index}
             post={post}
+            posts={Posts}
             profile={this.props.profiles.find(profile => (profile.owner === post.owner))}
             comments={this.props.comments.filter(comment => (comment.elementId === post._id))}
             currentUser={this.props.profiles.find(profile => (profile.owner) === Meteor.user().username)}
