@@ -31,7 +31,7 @@ class Website extends React.Component {
           </Card.Content>
           <Card.Content extra>
             {Meteor.user().username === website.owner &&
-            <Link to={`/editpost/${this.props.website._id}`}>Edit</Link>
+            <Link to={`/editsite/${this.props.website._id}`}>Edit</Link>
             }
             {(Meteor.user().username === website.owner || Roles.userIsInRole(Meteor.userId(), 'admin')) ? (
                 <a className={'delete'} onClick={() => {
