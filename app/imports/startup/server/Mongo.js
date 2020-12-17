@@ -28,14 +28,6 @@ function addWebsite(website) {
   Websites.collection.insert(website);
 }
 
-/** Initialize the collection if empty. */
-if (Profiles.collection.find().count() === 0) {
-  if (Meteor.settings.defaultProfiles) {
-    console.log('Creating default profiles.');
-    Meteor.settings.defaultProfiles.map(profile => addProfiles(profile));
-  }
-}
-
 /**
  * If the loadAssetsFile field in settings.development.json is true, then load the data in private/data.json.
  * This approach allows you to initialize your system with large amounts of data.
@@ -44,7 +36,7 @@ if (Profiles.collection.find().count() === 0) {
  * For more info on assets, see https://docs.meteor.com/api/assets.html
  * User count check is to make sure we don't load the file twice, which would generate errors due to duplicate info.
  */
-if ((Meteor.settings.loadAssetsFile) && (Profiles.collection.find().count() < 4)) {
+if ((Meteor.settings.loadAssetsFile) && (Profiles.collection.find().count() === 0)) {
   const assetsFileName = 'data.json';
   console.log(`Loading data from private/${assetsFileName}`);
   const jsonData = JSON.parse(Assets.getText(assetsFileName));
